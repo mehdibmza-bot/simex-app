@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Heart, ShoppingBag, User, Search, Menu, X, ChevronRight, Phone, MessageCircle } from "lucide-react";
 import { Logo } from "./logo";
-  import { useUI, useCart, useWishlist } from "@/lib/store";
+import { useUI, useCart, useWishlist } from "@/lib/store";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./theme-toggle";
@@ -128,7 +128,7 @@ function MobileMenu({
             {links.map((link) => {
               const { href, emoji, highlight, pro } = link;
               const label = getLabel(link);
-              <li key={href}>
+              return <li key={href}>
                 <Link
                   href={href}
                   onClick={onClose}
