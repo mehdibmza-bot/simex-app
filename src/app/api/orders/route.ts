@@ -56,10 +56,10 @@ export async function POST(req: NextRequest) {
         number: generateOrderNumber(),
         email: data.email,
         phone: data.phone,
-        shippingAddress: {
+        shippingAddress: JSON.stringify({
           name: data.name,
           ...data.address,
-        },
+        }),
         subtotal,
         discount,
         shipping,
