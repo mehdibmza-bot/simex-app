@@ -205,8 +205,24 @@ async function main() {
   }
 
   console.log("✅ Seed completed");
-}
 
+  // -------- siteContent defaults
+  const navLinks = {
+    links: [
+      { href: "/products",                label: "Tous les produits", emoji: "",   highlight: false, pro: false },
+      { href: "/products?cat=portes",     label: "Portes",            emoji: "",   highlight: false, pro: false },
+      { href: "/products?cat=glissieres", label: "Tiroirs",           emoji: "",   highlight: false, pro: false },
+      { href: "/products?cat=led",        label: "Éclairage",         emoji: "",   highlight: false, pro: false },
+      { href: "/builder",                 label: "Configurateur",     emoji: "",   highlight: false, pro: false },
+      { href: "/pro",                     label: "Espace PRO",        emoji: "★",  highlight: true,  pro: true  },
+    ],
+  };
+  await prisma.siteContent.upsert({
+    where: { key: "header_nav" },
+    update: { value: JSON.stringify(navLinks) },
+    create: { key: "header_nav", value: JSON.stringify(navLinks) },
+  });
+}
 main()
   .catch((e) => {
     console.error(e);

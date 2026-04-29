@@ -15,7 +15,7 @@ export function Logo({ className, dark = true }: { className?: string; dark?: bo
         )}
       >
         <Image
-          src="/simexlogo.png"
+          src="/Simexlogo.png"
           alt="SIMEX Furniture Hardware"
           fill
           sizes="200px"
