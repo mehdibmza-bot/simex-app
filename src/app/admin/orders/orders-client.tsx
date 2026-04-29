@@ -443,7 +443,7 @@ export function OrdersClient({ initialOrders, initialTotal }: OrdersClientProps)
                     </div>
                     <p className="text-neutral-400 text-sm flex items-center gap-2 font-medium">
                       <Clock className="w-4 h-4" />
-                      Enregistrée le {new Date(selected.createdAt).toLocaleDateString("fr-FR", { day: 'long', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                      Enregistrée le {new Date(selected.createdAt).toLocaleString("fr-FR", { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
