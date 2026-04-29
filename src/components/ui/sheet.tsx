@@ -48,10 +48,15 @@ interface SheetContentProps
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
->(({ side = "right", className, children, ...props }, ref) => (
+>(({ side = "right", className, children, ["aria-describedby"]: ariaDescribedBy, ...props }, ref) => (
   <SheetPortal>
     <SheetOverlay />
-    <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
+    <SheetPrimitive.Content
+      ref={ref}
+      aria-describedby={ariaDescribedBy ?? undefined}
+      className={cn(sheetVariants({ side }), className)}
+      {...props}
+    >
       {children}
       <SheetPrimitive.Close className="absolute right-4 top-4 rounded-full w-9 h-9 flex items-center justify-center bg-white/10 text-white hover:bg-brand-red transition-all">
         <X className="h-4 w-4" />

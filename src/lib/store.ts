@@ -87,7 +87,28 @@ export const useWishlist = create<WishlistState>()(
       has: (id) => get().ids.includes(id),
       clear: () => set({ ids: [], items: [] }),
     }),
-    { name: "simex-wishlist" }
+    {
+      name: "simex-wishlist",
+      version: 2,
+      migrate: (persistedState: any) => {
+        const rawItems = Array.isArray(persistedState?.items) ? persistedState.items : [];
+        const items = rawItems
+          .filter((it: any) => it && typeof it === "object" && it.id)
+          .map((it: any) => ({
+            id: String(it.id),
+            slug: typeof it.slug === "string" ? it.slug : "",
+            name: typeof it.name === "string" ? it.name : "Produit",
+            price: Number.isFinite(Number(it.price)) ? Number(it.price) : 0,
+            image: typeof it.image === "string" ? it.image : undefined,
+            category: typeof it.category === "string" ? it.category : undefined,
+          }));
+
+        return {
+          ids: items.map((it: any) => it.id),
+          items,
+        } as WishlistState;
+      },
+    }
   )
 );
 

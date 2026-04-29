@@ -141,7 +141,7 @@ export function ProductCard({ product }: { product: ProductCardData }) {
         <div className="flex items-center gap-1 mb-2 text-xs">
           <span className="text-amber-500">★</span>
           <span className="text-neutral-700 font-semibold">
-            {(product.rating || 4.7).toFixed(1)}
+            {Number(product.rating ?? 4.7).toFixed(1)}
           </span>
           <span className="text-neutral-400">({reviewsCount})</span>
           <span className="ml-auto text-emerald-600 font-medium">
