@@ -55,6 +55,7 @@ export default async function ProductsPage({
 
   return (
     <ProductsClient
+      key={`${params.get("cat") || "all"}-${params.get("q") || ""}`}
       initialProducts={products as any}
       categories={categories as any}
       initialCat={params.get("cat") || ""}

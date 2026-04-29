@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Filter, SlidersHorizontal, X } from "lucide-react";
 import { ProductCard, type ProductCardData } from "@/components/product-card";
@@ -39,6 +40,7 @@ export function ProductsClient({
   initialQuery,
 }: Props) {
   const t = useI18n((s) => s.t);
+  const router = useRouter();
   // Use shared catalog as fallback when DB returns nothing
   const products = initialProducts.length > 0 ? initialProducts : CATALOG;
   // Build sidebar category list from DB or derive from products
@@ -127,7 +129,7 @@ export function ProductsClient({
                 </h3>
                 <div className="space-y-1.5">
                   <button
-                    onClick={() => setCat("")}
+                    onClick={() => router.push("/products")}
                     className={cn(
                       "block w-full text-left px-3 py-2 rounded-lg text-sm transition-colors",
                       cat === ""
@@ -140,7 +142,7 @@ export function ProductsClient({
                   {sidebarCategories.map((c) => (
                     <button
                       key={c.slug}
-                      onClick={() => setCat(c.slug)}
+                      onClick={() => router.push(`/products?cat=${c.slug}`)}
                       className={cn(
                         "block w-full text-left px-3 py-2 rounded-lg text-sm transition-colors",
                         cat === c.slug
