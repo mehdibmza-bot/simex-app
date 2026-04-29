@@ -116,7 +116,8 @@ function TickerTab({ init }: { init: TickerEvent[] }) {
     setSaving(true);
     try {
       if (editId) {
-        const r = await fetch("/api/admin/ticker-events", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: editId, ...form }) });
+        const { id: _id, ...formWithoutId } = form as any;
+        const r = await fetch("/api/admin/ticker-events", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: editId, ...formWithoutId }) });
         const updated = await r.json();
         setItems((prev) => prev.map((x) => (x.id === editId ? updated : x)));
       } else {
@@ -221,7 +222,8 @@ function TestimonialsTab({ init }: { init: Testimonial[] }) {
     setSaving(true);
     try {
       if (editId) {
-        const r = await fetch("/api/admin/testimonials", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: editId, ...form }) });
+        const { id: _tid, ...formWithoutId1 } = form as any;
+        const r = await fetch("/api/admin/testimonials", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: editId, ...formWithoutId1 }) });
         const updated = await r.json();
         setItems((prev) => prev.map((x) => (x.id === editId ? updated : x)));
       } else {
@@ -361,7 +363,8 @@ function FaqTab({ init }: { init: FaqItem[] }) {
     setSaving(true);
     try {
       if (editId) {
-        const r = await fetch("/api/admin/faq-items", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: editId, ...form }) });
+        const { id: _fid, ...formWithoutId2 } = form as any;
+        const r = await fetch("/api/admin/faq-items", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: editId, ...formWithoutId2 }) });
         const updated = await r.json();
         setItems((prev) => prev.map((x) => (x.id === editId ? updated : x)));
       } else {
@@ -454,7 +457,8 @@ function VideosTab({ init }: { init: VideoItem[] }) {
     setSaving(true);
     try {
       if (editId) {
-        const r = await fetch("/api/admin/video-items", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: editId, ...form }) });
+        const { id: _vid, ...formWithoutId3 } = form as any;
+        const r = await fetch("/api/admin/video-items", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: editId, ...formWithoutId3 }) });
         const updated = await r.json();
         setItems((prev) => prev.map((x) => (x.id === editId ? updated : x)));
       } else {
