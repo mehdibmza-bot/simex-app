@@ -8,3 +8,5 @@ dist
 .DS_Store
 .vscode
 prisma/migrations/dev.db*
+prisma/dev.db
+prisma/dev.db-journal
