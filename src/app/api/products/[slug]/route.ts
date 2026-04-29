@@ -3,11 +3,12 @@ import { db } from "@/lib/db";
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const product = await db.product.findUnique({
-      where: { slug: params.slug },
+      where: { slug },
       include: {
         images: { orderBy: { order: "asc" } },
         category: true,
