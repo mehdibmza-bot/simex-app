@@ -9,7 +9,7 @@ export function Topbar({ phone: phoneProp, email: emailProp }: { phone?: string;
   const phone = phoneProp ?? "+216 97 730 083";
   const email = emailProp ?? "societesimex@gmail.com";
   return (
-    <div className="hidden lg:block bg-brand-black text-brand-cream text-[13px] border-b border-neutral-900">
+    <div className="pearl-topbar hidden lg:block bg-brand-black text-brand-cream text-[13px] border-b border-neutral-900">
       <div className="container">
         <div className="flex items-center justify-between h-9 gap-6">
           <div className="flex gap-5 items-center">

@@ -158,6 +158,123 @@ select option {
   to   { opacity: 1; transform: scale(1); }
 }
 
+/* ══════════════════════════════════════════════════════════════════
+   ✦  PEARL THEME  —  Warm White  ·  Editorial  ·  Professional
+      Activate: <html data-theme="pearl">
+      Default dark theme is completely untouched.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ─── Palette ────────────────────────────────────────────────────
+   Pearl White:   #FFFFFF            Warm Ink:     #1C1917
+   Warm Canvas:   #FAF8F5            Sand Muted:   #8A8278
+   Blush Surface: #F4F0E8            Stone Border: #E2DDD5
+   Mist Surface:  #EDE9E3            Glow Red:     #E1252A (unchanged)
+   ─────────────────────────────────────────────────────────────── */
+
+/* ─── Body / page ─── */
+html[data-theme="pearl"] body {
+  background-color: #FAF8F5;
+  color: #1C1917;
+}
+
+/* ─── Topbar ─── */
+html[data-theme="pearl"] .pearl-topbar {
+  background-color: #F4F0E8;
+  border-bottom-color: #E2DDD5;
+}
+html[data-theme="pearl"] .pearl-topbar .text-neutral-400 { color: #8A8278; }
+html[data-theme="pearl"] .pearl-topbar .text-brand-cream { color: #44403C; }
+html[data-theme="pearl"] .pearl-topbar a:hover           { color: #E1252A; }
+html[data-theme="pearl"] .pearl-topbar .bg-neutral-900   { background-color: #EDE9E3; }
+
+/* ─── Header ─── */
+html[data-theme="pearl"] header {
+  background-color: #FFFFFF;
+  border-bottom-color: #E2DDD5;
+  box-shadow: 0 1px 0 #E2DDD5;
+}
+/* Text inside header → warm ink */
+html[data-theme="pearl"] header .text-white   { color: #1C1917; }
+html[data-theme="pearl"] header .text-neutral-400 { color: #9A958D; }
+/* Search bar */
+html[data-theme="pearl"] header .bg-neutral-900 { background-color: #F4F0E8; }
+html[data-theme="pearl"] header .border-neutral-800 { border-color: #DDD9D1; }
+/* Icon button hovers */
+html[data-theme="pearl"] header button:hover { background-color: #EDE9E3; }
+/* Guard: red elements stay red + white text */
+html[data-theme="pearl"] header .bg-brand-red          { background-color: #E1252A !important; }
+html[data-theme="pearl"] header .bg-brand-red .text-white,
+html[data-theme="pearl"] header .bg-brand-red *        { color: #FFFFFF !important; }
+/* Badge border on light bg */
+html[data-theme="pearl"] header .border-brand-black    { border-color: #FFFFFF; }
+/* Scrolled shadow — softer in pearl */
+html[data-theme="pearl"] header {
+  transition: box-shadow 0.2s ease, background-color 0.3s ease;
+}
+
+/* ─── Mega-Nav ─── */
+html[data-theme="pearl"] nav.sticky {
+  background-color: #F4F0E8;
+  border-bottom-color: #E2DDD5;
+}
+html[data-theme="pearl"] nav.sticky .text-neutral-300 { color: #3C3733; }
+html[data-theme="pearl"] nav.sticky .text-white        { color: #3C3733; }
+html[data-theme="pearl"] nav.sticky a:hover {
+  background-color: #EDE9E3 !important;
+  color: #1C1917 !important;
+}
+/* Gradient fade at scroll edge — remap to pearl bg */
+html[data-theme="pearl"] nav.sticky .from-\[#0d0d0d\] {
+  --tw-gradient-from: #F4F0E8 var(--tw-gradient-from-position);
+}
+
+/* ─── Mobile Drawer ─── */
+html[data-theme="pearl"] .mobile-drawer {
+  background-color: #FDFCFA;
+}
+html[data-theme="pearl"] .mobile-drawer .text-white,
+html[data-theme="pearl"] .mobile-drawer .text-neutral-300,
+html[data-theme="pearl"] .mobile-drawer .text-neutral-400 { color: #1C1917; }
+html[data-theme="pearl"] .mobile-drawer .text-neutral-600  { color: #6B6560; }
+html[data-theme="pearl"] .mobile-drawer .bg-neutral-900    { background-color: #F4F0E8; }
+html[data-theme="pearl"] .mobile-drawer .bg-\[#0a0a0a\]   { background-color: #FDFCFA; }
+html[data-theme="pearl"] .mobile-drawer .border-neutral-800,
+html[data-theme="pearl"] .mobile-drawer .bg-neutral-800    { border-color: #E2DDD5; background-color: #E8E4DE; }
+html[data-theme="pearl"] .mobile-drawer a:hover,
+html[data-theme="pearl"] .mobile-drawer button:hover       { background-color: #EDE9E3 !important; color: #1C1917 !important; }
+html[data-theme="pearl"] .mobile-drawer .text-brand-red    { color: #E1252A; }
+html[data-theme="pearl"] .mobile-drawer .text-brand-gold   { color: #B07D2A; }
+
+/* ─── Mobile backdrop — lighter in pearl ─── */
+html[data-theme="pearl"] .mobile-backdrop {
+  background-color: rgba(28, 25, 23, 0.5) !important;
+}
+
+/* ─── Theme toggle button ─── */
+.theme-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+.theme-toggle:hover { transform: scale(1.08); }
+
+/* Dark mode: pearl toggle shows warm-tinted sun glow */
+html:not([data-theme="pearl"]) .theme-toggle:hover {
+  background: rgba(250, 248, 245, 0.12);
+  color: #FAF8F5;
+}
+/* Pearl mode: dark toggle shows ink-tinted moon */
+html[data-theme="pearl"] .theme-toggle:hover {
+  background: #EDE9E3;
+  color: #1C1917;
+}
+html[data-theme="pearl"] .theme-toggle .text-white { color: #1C1917; }
+
 .reveal       { opacity: 0; transform: translateY(36px);  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
 .reveal-left  { opacity: 0; transform: translateX(-36px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
 .reveal-scale { opacity: 0; transform: scale(0.9);        transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1); }

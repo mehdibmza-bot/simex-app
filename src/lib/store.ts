@@ -165,3 +165,22 @@ export const useCoupon = create<CouponState>((set, get) => ({
     return Math.round(subtotal * discountValue) / 100;
   },
 }));
+
+// ---------------------------------------------------------------------------
+// Theme store
+// ---------------------------------------------------------------------------
+
+interface ThemeState {
+  theme: "dark" | "pearl";
+  toggleTheme: () => void;
+}
+
+export const useTheme = create<ThemeState>()(
+  persist(
+    (set, get) => ({
+      theme: "dark",
+      toggleTheme: () => set({ theme: get().theme === "dark" ? "pearl" : "dark" }),
+    }),
+    { name: "simex-theme" }
+  )
+);

@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Heart, ShoppingBag, User, Search, Menu, X, ChevronRight, Phone, MessageCircle } from "lucide-react";
+import { Heart, ShoppingBag, User, Search, Menu, X, ChevronRight, Phone, MessageCircle, Moon, Sparkles } from "lucide-react";
 import { Logo } from "./logo";
-import { useUI, useCart, useWishlist } from "@/lib/store";
+import { useUI, useCart, useWishlist, useTheme } from "@/lib/store";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -83,7 +83,7 @@ function MobileMenu({
       {/* Backdrop */}
       <div
         className={cn(
-          "fixed inset-0 z-50 bg-black/70 backdrop-blur-sm transition-opacity duration-300",
+          "mobile-backdrop fixed inset-0 z-50 bg-black/70 backdrop-blur-sm transition-opacity duration-300",
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
         onClick={onClose}
@@ -92,7 +92,7 @@ function MobileMenu({
       {/* Drawer */}
       <div
         className={cn(
-          "fixed top-0 left-0 h-full w-[85vw] max-w-[340px] z-50 bg-[#0a0a0a] flex flex-col",
+          "mobile-drawer fixed top-0 left-0 h-full w-[85vw] max-w-[340px] z-50 bg-[#0a0a0a] flex flex-col",
           "transition-transform duration-300 ease-out shadow-[4px_0_40px_rgba(0,0,0,0.6)]",
           open ? "translate-x-0" : "-translate-x-full"
         )}
@@ -201,6 +201,7 @@ export function Header({ navLinks, phone }: { navLinks?: NavLink[]; phone?: stri
   const wishCount = useWishlist((s) => s.ids.length);
   const t = useI18n((s) => s.t);
   const { setCart, setWishlist, setAuth, setSearch } = useUI();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -261,6 +262,28 @@ export function Header({ navLinks, phone }: { navLinks?: NavLink[]; phone?: stri
               <IconBtn onClick={() => setCart(true)} count={mounted ? cartCount : 0} label="Panier">
                 <ShoppingBag className="w-5 h-5" />
               </IconBtn>
+
+              {/* Theme toggle */}
+              {mounted && (
+                <button
+                  onClick={toggleTheme}
+                  aria-label={theme === "dark" ? "Mode Pearl" : "Mode Sombre"}
+                  title={theme === "dark" ? "Thème Pearl" : "Thème Sombre"}
+                  className={cn(
+                    "theme-toggle text-white hidden md:flex ml-1",
+                    "border transition-all duration-200",
+                    theme === "dark"
+                      ? "border-neutral-800 hover:border-amber-300/40"
+                      : "border-[#E2DDD5] text-[#1C1917]"
+                  )}
+                >
+                  {theme === "dark" ? (
+                    <Sparkles className="w-[18px] h-[18px] text-amber-200/80" />
+                  ) : (
+                    <Moon className="w-[18px] h-[18px]" />
+                  )}
+                </button>
+              )}
             </div>
 
           </div>
