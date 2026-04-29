@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SIMEX — Furniture Hardware | Quincaillerie Premium en Tunisie</title>
+<meta name="description" content="SIMEX, le spécialiste tunisien de la quincaillerie pour meubles. Charnières, glissières, poignées, serrures, accessoires de cuisine. Livraison rapide. Programme Pro." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0A0A0A;
+  --black-2:#141414;
+  --black-3:#1C1C1C;
+  --red:#E1252A;
+  --red-2:#C41E22;
+  --red-glow:rgba(225,37,42,.45);
+  --cream:#F5EFE6;
+  --gold:#D4A24C;
+  --grey-1:#2A2A2A;
+  --grey-2:#3A3A3A;
+  --grey-3:#6B6B6B;
+  --grey-4:#A8A8A8;
+  --grey-5:#E5E5E5;
+  --white:#FFFFFF;
+  --green:#16A34A;
+  --amber:#F59E0B;
+  --shadow-lg:0 20px 60px rgba(0,0,0,.35);
+  --shadow-md:0 10px 30px rgba(0,0,0,.2);
+  --shadow-red:0 10px 40px rgba(225,37,42,.3);
+  --rad-sm:6px;
+  --rad-md:12px;
+  --rad-lg:20px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --container:1320px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--white);
+  color:var(--black);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body[dir="rtl"]{font-family:'Cairo','Inter',sans-serif}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:0;background:transparent;color:inherit}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+
+/* ===== TOP BAR ===== */
+.topbar{
+  background:var(--black);
+  color:var(--cream);
+  font-size:13px;
+  border-bottom:1px solid #222;
+}
+.topbar-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:38px;
+  gap:24px;
+}
+.topbar-left{display:flex;gap:20px;align-items:center}
+.topbar-left a{display:inline-flex;align-items:center;gap:6px;color:var(--grey-4);transition:color .2s}
+.topbar-left a:hover{color:var(--red)}
+.topbar-right{display:flex;gap:12px;align-items:center}
+.lang-switch{display:flex;background:#1a1a1a;border-radius:999px;padding:3px}
+.lang-btn{
+  padding:4px 10px;font-size:11px;font-weight:600;border-radius:999px;
+  color:var(--grey-4);transition:all .2s;letter-spacing:.5px;
+}
+.lang-btn.active{background:var(--red);color:#fff}
+.shipping-badge{display:flex;align-items:center;gap:6px;color:var(--cream)}
+.shipping-badge .dot{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px #22c55e;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+
+/* ===== HEADER ===== */
+.header{
+  background:var(--black);
+  color:#fff;
+  position:sticky;top:0;z-index:50;
+  border-bottom:1px solid #1f1f1f;
+  transition:box-shadow .3s;
+}
+.header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.header-inner{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:32px;
+  height:84px;
+}
+.logo{display:flex;align-items:center;gap:14px;cursor:pointer}
+.logo-mark{
+  width:62px;height:62px;
+  background:#000;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  border:1px solid #2a2a2a;
+}
+.logo-mark svg{width:46px;height:46px}
+.logo-text{display:flex;flex-direction:column;line-height:1}
+.logo-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:32px;letter-spacing:3px;color:#fff;font-weight:400;
+}
+.logo-tagline{
+  font-size:9px;letter-spacing:3px;color:var(--grey-4);
+  text-transform:uppercase;margin-top:4px;font-weight:500;
+}
+.search-wrap{position:relative;max-width:560px;width:100%;justify-self:center}
+.search-input{
+  width:100%;height:46px;border-radius:999px;
+  background:#1a1a1a;border:1px solid #2a2a2a;
+  color:#fff;padding:0 50px 0 22px;font-size:14px;
+  transition:all .2s;
+}
+.search-input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 4px rgba(225,37,42,.15)}
+.search-input::placeholder{color:var(--grey-3)}
+.search-btn{
+  position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  width:36px;height:36px;border-radius:50%;
+  background:var(--red);display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.search-btn:hover{background:var(--red-2);transform:translateY(-50%) scale(1.05)}
+[dir="rtl"] .search-btn{right:auto;left:6px}
+[dir="rtl"] .search-input{padding:0 22px 0 50px}
+.header-actions{display:flex;align-items:center;gap:6px}
+.icon-btn{
+  position:relative;
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;transition:all .2s;
+}
+.icon-btn:hover{background:#1a1a1a;color:var(--red)}
+.icon-btn svg{width:22px;height:22px}
+.badge{
+  position:absolute;top:4px;right:4px;
+  min-width:18px;height:18px;padding:0 5px;
+  background:var(--red);color:#fff;
+  font-size:10px;font-weight:700;
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--black);
+  animation:pop .3s var(--ease);
+}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+
+/* ===== MEGA NAV ===== */
+.meganav{
+  background:#0d0d0d;
+  border-bottom:1px solid #1f1f1f;
+  position:sticky;top:84px;z-index:49;
+}
+.meganav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:54px;gap:16px;
+}
+.meganav-list{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.meganav-list a{
+  padding:10px 16px;font-size:13px;font-weight:600;
+  color:#e5e5e5;letter-spacing:.3px;
+  border-radius:8px;transition:all .2s;
+  text-transform:uppercase;
+}
+.meganav-list a:hover{background:#1a1a1a;color:var(--red)}
+.meganav-list a.featured{
+  background:linear-gradient(135deg,var(--red),var(--red-2));
+  color:#fff;
+}
+.meganav-list a.featured:hover{box-shadow:var(--shadow-red)}
+.meganav-cta{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;color:var(--grey-4);
+}
+.meganav-cta strong{color:#fff;font-weight:700}
+
+/* ===== HERO SLIDER ===== */
+.hero{position:relative;background:var(--black);overflow:hidden}
+.slider{position:relative;height:620px;overflow:hidden}
+.slide{
+  position:absolute;inset:0;
+  display:grid;grid-template-columns:1.1fr 1fr;align-items:center;
+  opacity:0;transition:opacity .9s var(--ease);
+  pointer-events:none;
+}
+.slide.active{opacity:1;pointer-events:auto}
+.slide-content{padding:0 64px;color:#fff;z-index:2;position:relative}
+.slide-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--red);
+  padding:8px 16px;border:1px solid var(--red);
+  border-radius:999px;margin-bottom:24px;
+  background:rgba(225,37,42,.08);
+}
+.slide-eyebrow .pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1.5s infinite}
+.slide-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:84px;line-height:.95;letter-spacing:1px;
+  margin-bottom:20px;font-weight:400;
+}
+.slide-title .red{color:var(--red)}
+.slide-title .stroke{
+  -webkit-text-stroke:2px #fff;color:transparent;
+}
+.slide-desc{
+  font-size:18px;color:var(--grey-4);max-width:520px;
+  margin-bottom:32px;line-height:1.6;
+}
+.slide-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 28px;border-radius:999px;
+  font-weight:700;font-size:14px;letter-spacing:.5px;
+  transition:all .25s var(--ease);
+  text-transform:uppercase;
+}
+.btn-primary{background:var(--red);color:#fff;box-shadow:var(--shadow-red)}
+.btn-primary:hover{background:var(--red-2);transform:translateY(-2px);box-shadow:0 14px 50px rgba(225,37,42,.5)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid #fff}
+.btn-ghost:hover{background:#fff;color:var(--black)}
+.btn-dark{background:var(--black);color:#fff}
+.btn-dark:hover{background:var(--red)}
+
+.slide-visual{position:relative;height:100%}
+.slide-visual::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 60% 50%,rgba(225,37,42,.18),transparent 60%);
+}
+.slide-art{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:520px;height:520px;
+}
+.slide-shape{
+  position:absolute;border-radius:50%;
+}
+.slide-shape.r{
+  inset:0;background:conic-gradient(from 220deg,var(--red),var(--red-2),#7a0e10,var(--red));
+  filter:blur(2px);
+  animation:spin 20s linear infinite;
+}
+.slide-shape.r2{
+  inset:30px;background:radial-gradient(circle at 30% 30%,#1a1a1a,#000);
+  border:1px solid #2a2a2a;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* slide-specific visuals */
+.slide-1 .slide-art{width:560px;height:560px}
+.viz-hardware{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.viz-hardware .ring{
+  position:absolute;border:1px solid #2a2a2a;border-radius:50%;
+}
+.viz-hardware .ring.r1{inset:0}
+.viz-hardware .ring.r2{inset:60px;border-color:#1f1f1f}
+.viz-hardware .ring.r3{inset:120px;border-color:#1a1a1a;border-style:dashed}
+.hex-grid{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.hex{
+  position:absolute;width:90px;height:90px;
+  background:#161616;border:1px solid #2a2a2a;
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--red);font-size:34px;
+  transition:all .4s var(--ease);
+}
+.hex:nth-child(1){top:18%;left:50%;transform:translateX(-50%)}
+.hex:nth-child(2){top:50%;left:15%;transform:translateY(-50%)}
+.hex:nth-child(3){top:50%;right:15%;transform:translateY(-50%)}
+.hex:nth-child(4){bottom:18%;left:30%}
+.hex:nth-child(5){bottom:18%;right:30%}
+.hex:nth-child(6){top:50%;left:50%;transform:translate(-50%,-50%);background:var(--red);color:#fff;width:120px;height:120px;font-size:48px;box-shadow:var(--shadow-red)}
+.slide.active .hex{animation:floaty 4s ease-in-out infinite}
+.slide.active .hex:nth-child(2){animation-delay:.5s}
+.slide.active .hex:nth-child(3){animation-delay:1s}
+.slide.active .hex:nth-child(4){animation-delay:1.5s}
+.slide.active .hex:nth-child(5){animation-delay:2s}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -10px}}
+
+.slide-2 .slide-art{
+  background:linear-gradient(135deg,#1a1a1a,#000);
+  border-radius:24px;
+  border:1px solid #2a2a2a;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  width:560px;height:480px;
+}
+.cuisine-mock{position:relative;width:100%;height:100%;padding:40px}
+.cabinet{
+  position:absolute;background:linear-gradient(180deg,#2a2a2a,#1a1a1a);
+  border:1px solid #3a3a3a;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+}
+.cabinet .handle{
+  position:absolute;background:var(--red);
+  border-radius:2px;box-shadow:0 0 12px var(--red-glow);
+}
+.cab-1{top:40px;left:40px;width:180px;height:120px}
+.cab-1 .handle{bottom:8px;right:14px;width:36px;height:4px}
+.cab-2{top:40px;right:40px;width:180px;height:120px}
+.cab-2 .handle{bottom:8px;left:14px;width:36px;height:4px}
+.cab-3{top:180px;left:40px;width:380px;height:80px;background:linear-gradient(180deg,#1a1a1a,#0a0a0a)}
+.cab-3 .handle{top:50%;right:20px;transform:translateY(-50%);width:50px;height:6px}
+.cab-4{bottom:40px;left:40px;width:180px;height:120px}
+.cab-4 .handle{top:8px;right:14px;width:36px;height:4px}
+.cab-5{bottom:40px;right:40px;width:180px;height:120px}
+.cab-5 .handle{top:8px;left:14px;width:36px;height:4px}
+.spec-tag{
+  position:absolute;background:var(--red);color:#fff;
+  font-size:10px;font-weight:700;
+  padding:4px 10px;border-radius:999px;
+  letter-spacing:.5px;
+}
+.spec-tag::before{
+  content:"";position:absolute;
+  width:1px;height:30px;background:var(--red);
+}
+.spec-1{top:30px;left:240px}
+.spec-1::before{bottom:-30px;left:50%}
+
+.slide-3 .slide-art{width:560px;height:520px}
+.viz-pro{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,#1a1a1a,#000);
+  border-radius:24px;border:1px solid #2a2a2a;
+  padding:40px;
+}
+.pro-card{
+  background:#0a0a0a;border:1px solid #2a2a2a;
+  border-radius:16px;padding:24px;
+}
+.pro-card h4{color:#fff;font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;margin-bottom:12px}
+.pro-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+.pro-stat{
+  background:#141414;border:1px solid #2a2a2a;
+  border-radius:10px;padding:14px;text-align:center;
+}
+.pro-stat .num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--red);letter-spacing:1px}
+.pro-stat .lbl{font-size:10px;color:var(--grey-4);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+.pro-tier{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #2a2a2a}
+.pro-tier:last-child{border:0}
+.pro-tier .name{color:#fff;font-weight:600;font-size:13px}
+.pro-tier .disc{color:var(--red);font-weight:700}
+.pro-tier .badge-tier{font-size:9px;background:#2a2a2a;color:var(--grey-4);padding:2px 8px;border-radius:999px;letter-spacing:1px}
+.pro-tier.gold .badge-tier{background:var(--gold);color:#000}
+
+/* slider controls */
+.slider-controls{
+  position:absolute;bottom:32px;left:64px;
+  display:flex;gap:10px;z-index:5;
+}
+.slider-dot{
+  width:36px;height:4px;background:rgba(255,255,255,.2);
+  border-radius:2px;transition:all .3s var(--ease);
+}
+.slider-dot.active{background:var(--red);width:54px}
+.slider-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:50px;height:50px;border-radius:50%;
+  background:rgba(255,255,255,.06);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.15);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  z-index:5;transition:all .25s var(--ease);
+}
+.slider-arrow:hover{background:var(--red);border-color:var(--red)}
+.slider-arrow.prev{left:24px}
+.slider-arrow.next{right:24px}
+[dir="rtl"] .slider-arrow.prev{left:auto;right:24px}
+[dir="rtl"] .slider-arrow.next{right:auto;left:24px}
+
+/* ===== HAPPY HOUR BANNER ===== */
+.happy-hour{
+  background:linear-gradient(90deg,var(--red) 0%,#a01217 100%);
+  color:#fff;
+  position:relative;overflow:hidden;
+}
+.happy-hour::before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(255,255,255,.04) 30px,rgba(255,255,255,.04) 60px);
+}
+.hh-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 0;gap:24px;flex-wrap:wrap;position:relative;
+}
+.hh-left{display:flex;align-items:center;gap:18px}
+.hh-icon{
+  width:48px;height:48px;border-radius:50%;
+  background:#fff;color:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;animation:wiggle 2s ease-in-out infinite;
+}
+@keyframes wiggle{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+.hh-text h3{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px;line-height:1}
+.hh-text p{font-size:13px;opacity:.9;margin-top:4px}
+.hh-countdown{
+  display:flex;gap:8px;align-items:center;
+}
+.hh-time{
+  background:var(--black);color:#fff;
+  min-width:54px;padding:8px 4px;border-radius:8px;
+  text-align:center;border:1px solid rgba(255,255,255,.2);
+}
+.hh-time .num{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;line-height:1}
+.hh-time .lbl{font-size:9px;opacity:.7;letter-spacing:1px;margin-top:2px}
+.hh-sep{font-family:'Bebas Neue',sans-serif;font-size:24px;opacity:.6}
+.hh-cta{
+  background:#000;color:#fff;padding:14px 28px;border-radius:999px;
+  font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;
+  transition:all .2s;
+}
+.hh-cta:hover{background:#fff;color:var(--red)}
+
+/* ===== SECTIONS ===== */
+section{padding:90px 0}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;gap:24px;flex-wrap:wrap}
+.section-eyebrow{
+  display:inline-block;font-size:12px;font-weight:700;letter-spacing:3px;
+  color:var(--red);text-transform:uppercase;margin-bottom:12px;
+}
+.section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:56px;line-height:1;letter-spacing:1.5px;
+  color:var(--black);
+}
+.section-title .red{color:var(--red)}
+.section-sub{font-size:16px;color:var(--grey-3);margin-top:14px;max-width:520px}
+.section-link{font-weight:700;color:var(--red);font-size:13px;letter-spacing:1px;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.section-link:hover{gap:14px}
+
+/* ===== PERSONAS ===== */
+.personas{background:linear-gradient(180deg,var(--white),#fafafa)}
+.persona-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.persona-card{
+  position:relative;
+  background:#fff;border:1px solid var(--grey-5);
+  border-radius:var(--rad-lg);padding:36px 32px;
+  transition:all .3s var(--ease);
+  overflow:hidden;cursor:pointer;
+}
+.persona-card::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--red),var(--black));
+  opacity:0;transition:opacity .3s;
+}
+.persona-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--red)}
+.persona-card:hover::before{opacity:.04}
+.persona-icon{
+  width:64px;height:64px;border-radius:18px;
+  background:var(--black);color:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;margin-bottom:24px;
+  transition:all .3s;
+}
+.persona-card:hover .persona-icon{background:var(--red);color:#fff;transform:rotate(-6deg)}
+.persona-card h3{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:1px;margin-bottom:10px}
+.persona-card p{color:var(--grey-3);font-size:14px;line-height:1.6;margin-bottom:20px}
+.persona-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.persona-tag{font-size:11px;padding:5px 10px;background:#f5f5f5;color:var(--grey-2);border-radius:999px;font-weight:500}
+.persona-link{color:var(--red);font-weight:700;font-size:13px;letter-spacing:.5px;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.persona-card:hover .persona-link{gap:12px}
+
+/* ===== CATEGORIES ===== */
+.cat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.cat-card{
+  position:relative;
+  aspect-ratio:1/1;
+  background:var(--black);border-radius:var(--rad-lg);
+  overflow:hidden;cursor:pointer;
+  transition:all .35s var(--ease);
+  border:1px solid #1a1a1a;
+}
+.cat-card:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:var(--shadow-red)}
+.cat-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#1a1a1a;font-size:140px;transition:all .4s var(--ease)}
+.cat-card:hover .cat-bg{color:#222;transform:scale(1.1) rotate(-5deg)}
+.cat-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.95) 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:24px;color:#fff;
+}
+.cat-count{
+  display:inline-flex;align-self:flex-start;
+  font-size:11px;letter-spacing:1px;
+  background:var(--red);color:#fff;
+  padding:4px 10px;border-radius:999px;font-weight:700;
+  margin-bottom:12px;text-transform:uppercase;
+}
+.cat-card.featured .cat-count{background:var(--gold);color:#000}
+.cat-name{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:1px;line-height:1;margin-bottom:8px}
+.cat-desc{font-size:12px;color:var(--grey-4);margin-bottom:14px;line-height:1.5}
+.cat-arrow{
+  position:absolute;top:24px;right:24px;
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,.06);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.15);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  transition:all .3s var(--ease);
+}
+.cat-card:hover .cat-arrow{background:var(--red);border-color:var(--red);transform:rotate(-45deg)}
+[dir="rtl"] .cat-arrow{right:auto;left:24px}
+[dir="rtl"] .cat-card:hover .cat-arrow{transform:rotate(45deg)}
+
+/* ===== PRODUCT RAILS ===== */
+.products{background:#fafafa}
+.tabs{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap}
+.tab{
+  padding:10px 20px;border-radius:999px;
+  background:#fff;border:1px solid var(--grey-5);
+  font-size:13px;font-weight:600;color:var(--grey-2);
+  transition:all .2s;
+}
+.tab:hover{border-color:var(--red);color:var(--red)}
+.tab.active{background:var(--black);border-color:var(--black);color:#fff}
+.product-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.product-card{
+  background:#fff;border-radius:var(--rad-lg);
+  overflow:hidden;border:1px solid var(--grey-5);
+  transition:all .3s var(--ease);
+  position:relative;
+}
+.product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--black)}
+.product-img{
+  position:relative;aspect-ratio:1/1;
+  background:linear-gradient(135deg,#f5f5f5,#e8e8e8);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.product-img-icon{font-size:90px;color:var(--grey-4);transition:all .4s var(--ease)}
+.product-card:hover .product-img-icon{transform:scale(1.1) rotate(-5deg);color:var(--black)}
+.product-tags{position:absolute;top:12px;left:12px;display:flex;flex-direction:column;gap:6px;z-index:2}
+[dir="rtl"] .product-tags{left:auto;right:12px}
+.ptag{
+  font-size:10px;padding:4px 8px;border-radius:4px;
+  font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+}
+.ptag.new{background:var(--black);color:#fff}
+.ptag.sale{background:var(--red);color:#fff}
+.ptag.hot{background:var(--gold);color:#000}
+.ptag.eco{background:var(--green);color:#fff}
+.product-wishlist{
+  position:absolute;top:12px;right:12px;z-index:2;
+  width:36px;height:36px;border-radius:50%;
+  background:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  transition:all .2s;
+}
+[dir="rtl"] .product-wishlist{right:auto;left:12px}
+.product-wishlist:hover{background:var(--red);color:#fff;transform:scale(1.1)}
+.product-wishlist.active{background:var(--red);color:#fff}
+.product-wishlist svg{width:18px;height:18px}
+.product-quick{
+  position:absolute;bottom:0;left:0;right:0;
+  display:flex;gap:0;
+  transform:translateY(100%);transition:transform .3s var(--ease);
+  z-index:2;
+}
+.product-card:hover .product-quick{transform:translateY(0)}
+.product-quick button{
+  flex:1;padding:12px;font-size:11px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;transition:all .2s;
+}
+.product-quick .add-cart{background:var(--red);color:#fff}
+.product-quick .add-cart:hover{background:var(--red-2)}
+.product-quick .quick-view{background:var(--black);color:#fff}
+.product-quick .quick-view:hover{background:var(--grey-2)}
+.product-info{padding:18px}
+.product-cat{font-size:11px;color:var(--grey-3);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:600}
+.product-name{font-size:14px;font-weight:600;color:var(--black);margin-bottom:8px;line-height:1.4}
+.product-rating{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--grey-3);margin-bottom:10px}
+.stars{color:var(--gold);letter-spacing:1px}
+.product-price{display:flex;align-items:baseline;gap:8px}
+.price-now{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--black);letter-spacing:1px}
+.price-now .cur{font-size:14px;color:var(--grey-3);margin-left:4px}
+.price-was{font-size:13px;color:var(--grey-4);text-decoration:line-through}
+.price-disc{font-size:11px;background:var(--red);color:#fff;padding:2px 6px;border-radius:4px;font-weight:700;margin-left:6px}
+.product-stock{font-size:11px;color:var(--green);margin-top:8px;display:flex;align-items:center;gap:4px}
+.product-stock.low{color:var(--amber)}
+
+/* ===== PROJECT BUILDER TEASER ===== */
+.builder{
+  background:var(--black);color:#fff;
+  position:relative;overflow:hidden;
+}
+.builder::before{
+  content:"";position:absolute;
+  width:600px;height:600px;
+  background:radial-gradient(circle,var(--red-glow),transparent 70%);
+  top:-200px;right:-200px;
+}
+.builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative}
+.builder-content h2{font-family:'Bebas Neue',sans-serif;font-size:64px;line-height:1;letter-spacing:1px;margin-bottom:20px}
+.builder-content h2 .red{color:var(--red)}
+.builder-content p{color:var(--grey-4);font-size:16px;line-height:1.7;margin-bottom:28px;max-width:480px}
+.builder-features{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+.builder-features li{display:flex;align-items:center;gap:12px;font-size:14px;color:#e5e5e5}
+.builder-features .check{
+  width:24px;height:24px;border-radius:50%;
+  background:var(--red);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;flex-shrink:0;
+}
+.builder-mock{
+  background:#0d0d0d;border:1px solid #2a2a2a;
+  border-radius:24px;padding:28px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+  position:relative;
+}
+.builder-mock-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #2a2a2a}
+.builder-mock-head h4{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px}
+.builder-mock-head .live{display:flex;align-items:center;gap:6px;color:var(--green);font-size:11px;letter-spacing:1px;font-weight:700}
+.builder-mock-head .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite}
+.builder-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.bchip{padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;background:#1a1a1a;color:var(--grey-4);border:1px solid #2a2a2a;transition:all .2s;cursor:pointer}
+.bchip.on{background:var(--red);color:#fff;border-color:var(--red)}
+.bchip:hover{border-color:var(--red);color:#fff}
+.bom{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.bom-row{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:#141414;border-radius:10px;font-size:13px;border:1px solid #1f1f1f}
+.bom-row .name{color:#fff;font-weight:500}
+.bom-row .qty{color:var(--grey-4);font-size:11px;margin-left:8px}
+.bom-row .price{color:var(--red);font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px}
+.bom-total{display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px solid #2a2a2a}
+.bom-total .lbl{font-size:13px;color:var(--grey-4)}
+.bom-total .amount{font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:1px}
+.bom-total .save{font-size:11px;background:var(--green);color:#fff;padding:3px 8px;border-radius:4px;font-weight:700;margin-left:8px;letter-spacing:.5px}
+
+/* ===== MISSION ===== */
+.mission{
+  background:linear-gradient(135deg,#fafafa,#fff);
+  position:relative;
+}
+.mission-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
+.mission-visual{position:relative;aspect-ratio:1/1;max-width:480px}
+.mission-blob{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--red),var(--black));
+  border-radius:50% 30% 50% 40%;
+  animation:morph 12s ease-in-out infinite;
+}
+@keyframes morph{
+  0%,100%{border-radius:50% 30% 50% 40%;transform:rotate(0)}
+  33%{border-radius:30% 60% 30% 50%;transform:rotate(120deg)}
+  66%{border-radius:60% 40% 60% 30%;transform:rotate(240deg)}
+}
+.mission-icon{
+  position:absolute;inset:60px;
+  background:#fff;border-radius:50% 30% 50% 40%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-lg);
+  font-size:120px;color:var(--red);
+}
+.mission-content h2{font-family:'Bebas Neue',sans-serif;font-size:64px;line-height:1;letter-spacing:1.5px;margin-bottom:24px}
+.mission-content h2 .red{color:var(--red)}
+.mission-text{font-size:16px;line-height:1.8;color:var(--grey-2);margin-bottom:32px}
+.mission-text strong{color:var(--black);font-weight:700}
+.mission-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pillar{
+  padding:24px 20px;background:#fff;border-radius:14px;
+  border:1px solid var(--grey-5);
+  text-align:center;transition:all .3s var(--ease);
+}
+.pillar:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:var(--shadow-md)}
+.pillar-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:var(--black);color:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin:0 auto 14px;
+  transition:all .3s;
+}
+.pillar:hover .pillar-icon{background:var(--red);color:#fff}
+.pillar h4{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;margin-bottom:6px}
+.pillar p{font-size:12px;color:var(--grey-3);line-height:1.5}
+
+/* ===== VIDEO SHOWCASE ===== */
+.video-section{background:var(--black);color:#fff;position:relative;overflow:hidden}
+.video-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top,rgba(225,37,42,.1),transparent 60%)}
+.video-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:560px}
+.video-tile{
+  position:relative;background:#1a1a1a;border-radius:var(--rad-lg);
+  overflow:hidden;cursor:pointer;
+  border:1px solid #2a2a2a;
+  transition:all .3s var(--ease);
+}
+.video-tile:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:var(--shadow-red)}
+.video-tile.large{grid-row:1/3}
+.video-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--red),#1a0507);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.05);font-size:200px;
+}
+.video-tile:not(.large) .video-bg{background:linear-gradient(135deg,#2a2a2a,#0a0a0a)}
+.video-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.85) 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:24px;color:#fff;
+}
+.play-btn{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(255,255,255,.1);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;color:#fff;
+  transition:all .25s var(--ease);
+}
+.video-tile:hover .play-btn{background:var(--red);border-color:var(--red);transform:translate(-50%,-50%) scale(1.1)}
+.video-meta{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:11px;color:var(--grey-4);letter-spacing:1px;text-transform:uppercase}
+.video-meta .duration{background:rgba(0,0,0,.6);padding:3px 8px;border-radius:4px;color:#fff}
+.video-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;line-height:1.1}
+.video-tile.large .video-title{font-size:32px}
+
+/* ===== TRUST BAR ===== */
+.trust{background:#fff;border-top:1px solid var(--grey-5);border-bottom:1px solid var(--grey-5)}
+.trust-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:40px 0}
+.trust-item{display:flex;align-items:center;gap:16px}
+.trust-icon{
+  width:54px;height:54px;border-radius:14px;
+  background:linear-gradient(135deg,var(--red),var(--black));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:24px;flex-shrink:0;
+}
+.trust-text h4{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;margin-bottom:4px}
+.trust-text p{font-size:12px;color:var(--grey-3);line-height:1.5}
+
+/* ===== FAQ ===== */
+.faq{background:#fafafa}
+.faq-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:flex-start}
+.faq-side{position:sticky;top:170px}
+.faq-side h2{font-family:'Bebas Neue',sans-serif;font-size:64px;line-height:1;letter-spacing:1.5px;margin-bottom:18px}
+.faq-side h2 .red{color:var(--red)}
+.faq-side p{color:var(--grey-3);font-size:16px;line-height:1.7;margin-bottom:24px}
+.faq-side .btn{font-size:13px}
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-item{
+  background:#fff;border:1px solid var(--grey-5);border-radius:var(--rad-md);
+  overflow:hidden;transition:all .3s var(--ease);
+}
+.faq-item:hover{border-color:var(--red)}
+.faq-item.open{border-color:var(--black);box-shadow:var(--shadow-md)}
+.faq-q{
+  padding:22px 24px;display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;font-weight:600;font-size:15px;color:var(--black);gap:16px;
+  text-align:left;width:100%;
+}
+.faq-icon{
+  flex-shrink:0;width:32px;height:32px;border-radius:50%;
+  background:#f5f5f5;color:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:700;transition:all .3s var(--ease);
+}
+.faq-item.open .faq-icon{background:var(--red);color:#fff;transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s var(--ease);
+}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{padding:0 24px 24px;color:var(--grey-2);font-size:14px;line-height:1.7;border-top:1px solid var(--grey-5);padding-top:18px;margin-top:0}
+
+/* ===== NEWSLETTER ===== */
+.newsletter{
+  background:linear-gradient(135deg,var(--red) 0%,#a01217 100%);
+  color:#fff;position:relative;overflow:hidden;
+}
+.newsletter::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 80% 50%,rgba(255,255,255,.1),transparent 50%);
+}
+.newsletter-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative}
+.newsletter h2{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;letter-spacing:1.5px;margin-bottom:16px}
+.newsletter p{font-size:16px;opacity:.9;max-width:440px;line-height:1.6}
+.newsletter-form{display:flex;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:8px;backdrop-filter:blur(10px)}
+.newsletter-form input{
+  flex:1;background:transparent;border:0;outline:0;
+  color:#fff;padding:14px 22px;font-size:15px;font-family:inherit;
+}
+.newsletter-form input::placeholder{color:rgba(255,255,255,.6)}
+.newsletter-form button{
+  background:var(--black);color:#fff;
+  padding:14px 28px;border-radius:999px;
+  font-weight:700;letter-spacing:.5px;font-size:13px;text-transform:uppercase;
+  transition:all .2s;
+}
+.newsletter-form button:hover{background:#fff;color:var(--black)}
+.newsletter-perks{display:flex;gap:32px;margin-top:24px;flex-wrap:wrap}
+.newsletter-perks span{display:flex;align-items:center;gap:8px;font-size:13px;opacity:.9}
+.newsletter-perks span::before{content:"✓";color:#fff;font-weight:700}
+
+/* ===== FOOTER ===== */
+.footer{background:#050505;color:var(--grey-4);padding:80px 0 30px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.2fr;gap:48px;margin-bottom:60px}
+.footer-brand .logo{margin-bottom:20px}
+.footer-brand p{font-size:13px;line-height:1.7;color:var(--grey-3);margin-bottom:24px}
+.footer-social{display:flex;gap:10px}
+.social-btn{
+  width:40px;height:40px;border-radius:10px;
+  background:#1a1a1a;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .25s var(--ease);
+  font-size:16px;
+}
+.social-btn:hover{background:var(--red);transform:translateY(-3px)}
+.footer h5{
+  color:#fff;font-family:'Bebas Neue',sans-serif;
+  font-size:18px;letter-spacing:2px;margin-bottom:20px;
+}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer ul a{font-size:13px;color:var(--grey-4);transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.footer ul a:hover{color:var(--red);transform:translateX(4px)}
+[dir="rtl"] .footer ul a:hover{transform:translateX(-4px)}
+.footer-contact{display:flex;flex-direction:column;gap:14px}
+.fc-item{display:flex;align-items:flex-start;gap:12px;font-size:13px;line-height:1.5}
+.fc-icon{
+  width:34px;height:34px;border-radius:10px;
+  background:#1a1a1a;color:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:14px;
+}
+.fc-item strong{display:block;color:#fff;font-weight:600;margin-bottom:2px;font-size:13px}
+.footer-bottom{
+  border-top:1px solid #1a1a1a;padding-top:30px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;font-size:12px;
+}
+.payment-badges{display:flex;gap:10px;align-items:center}
+.payment-badges span{
+  background:#1a1a1a;padding:6px 12px;border-radius:6px;
+  font-size:11px;letter-spacing:.5px;color:var(--grey-4);font-weight:600;
+}
+
+/* ===== DRAWERS / MODALS ===== */
+.overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.7);backdrop-filter:blur(6px);
+  z-index:100;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s var(--ease);
+}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:440px;max-width:100vw;
+  background:#fff;z-index:101;
+  transform:translateX(100%);transition:transform .35s var(--ease);
+  display:flex;flex-direction:column;
+  box-shadow:-20px 0 80px rgba(0,0,0,.3);
+}
+.drawer.show{transform:translateX(0)}
+[dir="rtl"] .drawer{right:auto;left:0;transform:translateX(-100%)}
+[dir="rtl"] .drawer.show{transform:translateX(0)}
+.drawer-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 24px;border-bottom:1px solid var(--grey-5);
+  background:var(--black);color:#fff;
+}
+.drawer-head h3{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;display:flex;align-items:center;gap:8px}
+.drawer-close{
+  width:36px;height:36px;border-radius:50%;
+  background:#1a1a1a;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.drawer-close:hover{background:var(--red)}
+.drawer-body{flex:1;overflow-y:auto;padding:20px 24px}
+.drawer-foot{padding:20px 24px;border-top:1px solid var(--grey-5);background:#fafafa}
+.cart-item{
+  display:grid;grid-template-columns:70px 1fr auto;
+  gap:14px;padding:14px 0;border-bottom:1px solid var(--grey-5);
+}
+.cart-item:last-child{border:0}
+.cart-img{
+  width:70px;height:70px;border-radius:10px;
+  background:linear-gradient(135deg,#f5f5f5,#e8e8e8);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;color:var(--grey-3);
+}
+.cart-info h4{font-size:13px;font-weight:600;margin-bottom:4px;line-height:1.3}
+.cart-info .meta{font-size:11px;color:var(--grey-3);margin-bottom:8px}
+.qty-ctrl{display:inline-flex;align-items:center;background:#f5f5f5;border-radius:6px;overflow:hidden}
+.qty-ctrl button{width:24px;height:24px;font-size:14px;color:var(--grey-2);transition:all .15s}
+.qty-ctrl button:hover{background:var(--red);color:#fff}
+.qty-ctrl span{padding:0 8px;font-size:12px;font-weight:600}
+.cart-price{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.cart-price .amt{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--black);letter-spacing:1px}
+.cart-remove{font-size:11px;color:var(--grey-3);transition:color .2s}
+.cart-remove:hover{color:var(--red)}
+.cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.cart-total .lbl{font-size:13px;color:var(--grey-3)}
+.cart-total .amt{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--black);letter-spacing:1px}
+.cart-foot-actions{display:flex;flex-direction:column;gap:10px}
+.cart-foot-actions .btn{justify-content:center;width:100%}
+.empty-state{text-align:center;padding:60px 20px;color:var(--grey-3)}
+.empty-state-icon{font-size:64px;margin-bottom:14px;color:var(--grey-4)}
+.empty-state h4{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;color:var(--black);margin-bottom:8px}
+.empty-state p{font-size:13px;margin-bottom:20px}
+
+.modal{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.95);
+  width:440px;max-width:92vw;background:#fff;z-index:101;
+  border-radius:var(--rad-lg);overflow:hidden;
+  opacity:0;pointer-events:none;
+  transition:all .3s var(--ease);
+  box-shadow:0 30px 80px rgba(0,0,0,.4);
+}
+.modal.show{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.modal-head{
+  background:var(--black);color:#fff;
+  padding:24px;display:flex;justify-content:space-between;align-items:center;
+}
+.modal-head h3{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px}
+.modal-body{padding:28px 24px}
+.modal-tabs{display:flex;background:#f5f5f5;border-radius:10px;padding:4px;margin-bottom:24px}
+.modal-tab{flex:1;padding:10px;font-weight:600;font-size:13px;border-radius:8px;color:var(--grey-3);transition:all .2s}
+.modal-tab.active{background:#fff;color:var(--black);box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:var(--grey-2);letter-spacing:.5px;text-transform:uppercase}
+.field input{
+  width:100%;padding:12px 16px;border:1px solid var(--grey-5);
+  border-radius:10px;font-size:14px;font-family:inherit;
+  transition:all .2s;
+}
+.field input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 4px rgba(225,37,42,.1)}
+.modal-actions{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.modal-actions .btn{justify-content:center;width:100%}
+.modal-foot{padding:16px 24px;background:#fafafa;text-align:center;font-size:12px;color:var(--grey-3)}
+.modal-foot a{color:var(--red);font-weight:600}
+
+/* search modal */
+.search-modal{
+  position:fixed;top:0;left:0;right:0;
+  background:#fff;z-index:101;
+  transform:translateY(-100%);transition:transform .35s var(--ease);
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+.search-modal.show{transform:translateY(0)}
+.search-modal-inner{padding:30px 24px;max-width:880px;margin:0 auto}
+.search-modal-input-wrap{position:relative;margin-bottom:24px}
+.search-modal input{
+  width:100%;padding:18px 60px 18px 24px;
+  border:2px solid var(--black);border-radius:14px;
+  font-size:18px;font-family:inherit;
+}
+.search-modal input:focus{outline:none;border-color:var(--red)}
+.search-modal-close{
+  position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  width:38px;height:38px;border-radius:50%;background:var(--black);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+[dir="rtl"] .search-modal-close{right:auto;left:16px}
+.search-suggestions h5{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--grey-3);margin-bottom:12px;font-weight:700}
+.search-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.search-tag{padding:8px 14px;background:#f5f5f5;border-radius:999px;font-size:13px;font-weight:500;transition:all .2s}
+.search-tag:hover{background:var(--black);color:#fff}
+.search-results{display:flex;flex-direction:column}
+.search-result{display:grid;grid-template-columns:50px 1fr auto;gap:14px;padding:12px;border-radius:10px;transition:background .15s;align-items:center;cursor:pointer}
+.search-result:hover{background:#fafafa}
+.search-result-img{width:50px;height:50px;background:#f5f5f5;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--grey-3);font-size:20px}
+.search-result-info h6{font-size:14px;font-weight:600;margin-bottom:2px}
+.search-result-info span{font-size:11px;color:var(--grey-3);text-transform:uppercase;letter-spacing:1px}
+.search-result-price{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--red);letter-spacing:1px}
+
+/* ===== TOAST ===== */
+.toast{
+  position:fixed;bottom:30px;right:30px;
+  background:var(--black);color:#fff;padding:14px 22px;
+  border-radius:12px;box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;gap:12px;
+  z-index:200;font-size:14px;font-weight:500;
+  transform:translateX(120%);transition:transform .35s var(--ease);
+  max-width:340px;border-left:4px solid var(--red);
+}
+.toast.show{transform:translateX(0)}
+[dir="rtl"] .toast{right:auto;left:30px;transform:translateX(-120%);border-left:0;border-right:4px solid var(--red)}
+[dir="rtl"] .toast.show{transform:translateX(0)}
+.toast-icon{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--red);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+
+/* ===== WHATSAPP FAB ===== */
+.whatsapp-fab{
+  position:fixed;bottom:24px;right:24px;
+  width:62px;height:62px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px rgba(37,211,102,.4);
+  z-index:50;font-size:30px;
+  transition:all .3s var(--ease);
+  animation:wfloat 3s ease-in-out infinite;
+}
+[dir="rtl"] .whatsapp-fab{right:auto;left:24px}
+@keyframes wfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.whatsapp-fab:hover{transform:scale(1.1)}
+.whatsapp-fab::before{
+  content:"";position:absolute;inset:0;
+  border-radius:50%;border:2px solid #25D366;
+  animation:wpulse 2s ease-out infinite;
+}
+@keyframes wpulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.6);opacity:0}}
+
+/* ===== ANIMATIONS / REVEAL ===== */
+.reveal{opacity:0;transform:translateY(20px);transition:all .6s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1024px){
+  .header-inner{grid-template-columns:auto 1fr auto;gap:16px}
+  .search-wrap{display:none}
+  .meganav-list{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .meganav-list::-webkit-scrollbar{display:none}
+  .slide{grid-template-columns:1fr;text-align:center}
+  .slide-content{padding:60px 24px 0;order:2}
+  .slide-visual{order:1;max-height:340px}
+  .slide-art{transform:translate(-50%,-50%) scale(.7)}
+  .slide-title{font-size:48px}
+  .section-title,.builder-content h2,.mission-content h2,.faq-side h2,.newsletter h2{font-size:42px}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .builder-grid,.mission-grid,.faq-grid,.newsletter-grid{grid-template-columns:1fr;gap:40px}
+  .video-grid{grid-template-columns:1fr;grid-template-rows:repeat(5,200px);height:auto}
+  .video-tile.large{grid-row:auto}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .trust-inner{grid-template-columns:repeat(2,1fr)}
+  .persona-grid{grid-template-columns:1fr}
+  .topbar{display:none}
+}
+@media (max-width:600px){
+  .cat-grid{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .slide-title{font-size:38px}
+  .header-inner{height:70px;gap:8px}
+  .logo-mark{width:50px;height:50px}
+  .logo-mark svg{width:36px;height:36px}
+  .logo-name{font-size:24px}
+  .icon-btn{width:38px;height:38px}
+  .meganav{display:none}
+  .header{top:0;position:sticky}
+  .hh-inner{flex-direction:column;text-align:center}
+  .builder-mock{padding:18px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .section-title{font-size:36px}
+  section{padding:60px 0}
+  .mission-pillars{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <a href="#"><span>📞</span> <span data-i18n="phone">+216 97 730 083</span></a>
+        <a href="#"><span>✉️</span> <span>societesimex@gmail.com</span></a>
+      </div>
+      <div class="topbar-right">
+        <span class="shipping-badge"><span class="dot"></span><span data-i18n="open">Boutique ouverte · Livraison sous 24-48h</span></span>
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ar">AR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10,55 Q25,15 45,30 Q60,40 70,25" stroke="#E1252A" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <circle cx="68" cy="26" r="4" fill="#E1252A"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="logo-name">SIMEX</div>
+          <div class="logo-tagline">Furniture Hardware</div>
+        </div>
+      </div>
+      <div class="search-wrap">
+        <input type="text" class="search-input" placeholder="Charnières, glissières, poignées…" data-i18n-placeholder="search_ph" id="header-search" readonly />
+        <button class="search-btn" onclick="openSearch()" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
+        </button>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" onclick="openModal('account')" title="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8"/></svg>
+        </button>
+        <button class="icon-btn" onclick="openDrawer('wishlist')" title="Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="badge" id="wishlist-badge" style="display:none">0</span>
+        </button>
+        <button class="icon-btn" onclick="openDrawer('cart')" title="Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="badge" id="cart-badge" style="display:none">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MEGA NAV ============ -->
+<nav class="meganav">
+  <div class="container">
+    <div class="meganav-inner">
+      <div class="meganav-list">
+        <a href="#categories" data-i18n="nav_all">Tous les produits</a>
+        <a href="#" data-i18n="nav_kitchen">Cuisine</a>
+        <a href="#" data-i18n="nav_wardrobe">Dressing</a>
+        <a href="#" data-i18n="nav_door">Portes</a>
+        <a href="#" data-i18n="nav_drawer">Tiroirs</a>
+        <a href="#" data-i18n="nav_lighting">Éclairage</a>
+        <a href="#builder" data-i18n="nav_builder">Configurateur</a>
+        <a href="#" class="featured" data-i18n="nav_pro">★ Espace Pro</a>
+      </div>
+      <div class="meganav-cta">
+        <span data-i18n="cta_pro">Vous êtes professionnel ?</span>
+        <strong data-i18n="cta_disc">Jusqu'à -25%</strong>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO SLIDER ============ -->
+<section class="hero">
+  <div class="slider" id="slider">
+    <!-- Slide 1: Brand -->
+    <div class="slide slide-1 active">
+      <div class="slide-content">
+        <div class="slide-eyebrow"><span class="pulse-dot"></span><span data-i18n="s1_eb">Nouveau · Catalogue 2026</span></div>
+        <h1 class="slide-title">
+          <span data-i18n="s1_t1">Plus que de la</span><br>
+          <span class="red" data-i18n="s1_t2">quincaillerie.</span><br>
+          <span class="stroke" data-i18n="s1_t3">Une révolution.</span>
+        </h1>
+        <p class="slide-desc" data-i18n="s1_desc">5 000+ références de quincaillerie pour meubles. Sélectionnées, testées, livrées partout en Tunisie en 24-48h.</p>
+        <div class="slide-actions">
+          <a href="#categories" class="btn btn-primary" data-i18n="s1_b1">Découvrir le catalogue
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#builder" class="btn btn-ghost" data-i18n="s1_b2">▶ Voir le configurateur</a>
+        </div>
+      </div>
+      <div class="slide-visual">
+        <div class="slide-art">
+          <div class="viz-hardware">
+            <div class="ring r1"></div>
+            <div class="ring r2"></div>
+            <div class="ring r3"></div>
+            <div class="hex-grid">
+              <div class="hex">⚙</div>
+              <div class="hex">◈</div>
+              <div class="hex">◇</div>
+              <div class="hex">▣</div>
+              <div class="hex">⌬</div>
+              <div class="hex">⚡</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 2: Kitchen -->
+    <div class="slide slide-2">
+      <div class="slide-content">
+        <div class="slide-eyebrow"><span class="pulse-dot"></span><span data-i18n="s2_eb">Cuisine · Premium</span></div>
+        <h1 class="slide-title">
+          <span data-i18n="s2_t1">Charnières</span><br>
+          <span class="red" data-i18n="s2_t2">à fermeture</span><br>
+          <span data-i18n="s2_t3">douce.</span>
+        </h1>
+        <p class="slide-desc" data-i18n="s2_desc">Mécanisme soft-close garanti 50 000 cycles. La performance allemande, le prix tunisien.</p>
+        <div class="slide-actions">
+          <a href="#" class="btn btn-primary" data-i18n="s2_b1">Voir la collection
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="btn btn-ghost" data-i18n="s2_b2">Guide d'installation</a>
+        </div>
+      </div>
+      <div class="slide-visual">
+        <div class="slide-art">
+          <div class="cuisine-mock">
+            <div class="cabinet cab-1"><div class="handle"></div></div>
+            <div class="cabinet cab-2"><div class="handle"></div></div>
+            <div class="cabinet cab-3"><div class="handle"></div></div>
+            <div class="cabinet cab-4"><div class="handle"></div></div>
+            <div class="cabinet cab-5"><div class="handle"></div></div>
+            <div class="spec-tag spec-1">SOFT-CLOSE 110°</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 3: Pro -->
+    <div class="slide slide-3">
+      <div class="slide-content">
+        <div class="slide-eyebrow"><span class="pulse-dot"></span><span data-i18n="s3_eb">Espace Pro · Réservé aux professionnels</span></div>
+        <h1 class="slide-title">
+          <span data-i18n="s3_t1">Menuisier ?</span><br>
+          <span class="red" data-i18n="s3_t2">Décorateur ?</span><br>
+          <span data-i18n="s3_t3">On vous équipe.</span>
+        </h1>
+        <p class="slide-desc" data-i18n="s3_desc">Compte Pro avec remises jusqu'à -25%, paiement à 30j, livraison prioritaire et conseiller dédié.</p>
+        <div class="slide-actions">
+          <a href="#" class="btn btn-primary" data-i18n="s3_b1">Devenir Pro gratuit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="btn btn-ghost" data-i18n="s3_b2">Voir les avantages</a>
+        </div>
+      </div>
+      <div class="slide-visual">
+        <div class="slide-art">
+          <div class="viz-pro">
+            <div class="pro-card">
+              <h4 data-i18n="pro_title">Tableau Pro</h4>
+              <div class="pro-stats">
+                <div class="pro-stat"><div class="num">-25%</div><div class="lbl">Remise max</div></div>
+                <div class="pro-stat"><div class="num">30j</div><div class="lbl">Paiement</div></div>
+                <div class="pro-stat"><div class="num">24h</div><div class="lbl">Livraison</div></div>
+              </div>
+              <div class="pro-tier"><span class="name">Bronze</span><span class="badge-tier">DÉMARRAGE</span><span class="disc">-10%</span></div>
+              <div class="pro-tier"><span class="name">Silver</span><span class="badge-tier">CROISSANCE</span><span class="disc">-15%</span></div>
+              <div class="pro-tier gold"><span class="name">Gold</span><span class="badge-tier">PREMIUM</span><span class="disc">-20%</span></div>
+              <div class="pro-tier"><span class="name">Diamond</span><span class="badge-tier">VIP</span><span class="disc">-25%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="slider-arrow prev" onclick="changeSlide(-1)" aria-label="Previous">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <button class="slider-arrow next" onclick="changeSlide(1)" aria-label="Next">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+    <div class="slider-controls">
+      <div class="slider-dot active" onclick="goToSlide(0)"></div>
+      <div class="slider-dot" onclick="goToSlide(1)"></div>
+      <div class="slider-dot" onclick="goToSlide(2)"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HAPPY HOUR ============ -->
+<div class="happy-hour">
+  <div class="container">
+    <div class="hh-inner">
+      <div class="hh-left">
+        <div class="hh-icon">⚡</div>
+        <div class="hh-text">
+          <h3 data-i18n="hh_title">HAPPY HOUR · -30% sur tout</h3>
+          <p data-i18n="hh_sub">Profitez de notre flash sale, livraison express incluse</p>
+        </div>
+      </div>
+      <div class="hh-countdown" id="hh-countdown">
+        <div class="hh-time"><div class="num" id="hh-h">00</div><div class="lbl" data-i18n="hr">HEURES</div></div>
+        <div class="hh-sep">:</div>
+        <div class="hh-time"><div class="num" id="hh-m">00</div><div class="lbl" data-i18n="min">MIN</div></div>
+        <div class="hh-sep">:</div>
+        <div class="hh-time"><div class="num" id="hh-s">00</div><div class="lbl" data-i18n="sec">SEC</div></div>
+      </div>
+      <a href="#products" class="hh-cta" data-i18n="hh_cta">Profiter →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PERSONAS ============ -->
+<section class="personas">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow" data-i18n="per_eb">Trouvez votre voie</div>
+        <h2 class="section-title"><span data-i18n="per_t1">Qui </span><span class="red" data-i18n="per_t2">êtes-vous</span><span data-i18n="per_t3"> aujourd'hui ?</span></h2>
+      </div>
+    </div>
+    <div class="persona-grid">
+      <div class="persona-card reveal">
+        <div class="persona-icon">🏠</div>
+        <h3 data-i18n="p1_title">Je rénove chez moi</h3>
+        <p data-i18n="p1_desc">Cuisine, dressing, salle de bain… Trouvez la quincaillerie qui transformera votre intérieur.</p>
+        <div class="persona-tags">
+          <span class="persona-tag" data-i18n="p1_tag1">Particulier</span>
+          <span class="persona-tag" data-i18n="p1_tag2">DIY</span>
+          <span class="persona-tag" data-i18n="p1_tag3">Décoration</span>
+        </div>
+        <a href="#categories" class="persona-link" data-i18n="p1_link">Explorer →</a>
+      </div>
+      <div class="persona-card reveal">
+        <div class="persona-icon">🔧</div>
+        <h3 data-i18n="p2_title">Je répare un meuble</h3>
+        <p data-i18n="p2_desc">Charnière cassée, glissière qui coince ? Identifiez et commandez la pièce exacte.</p>
+        <div class="persona-tags">
+          <span class="persona-tag" data-i18n="p2_tag1">Pièces détachées</span>
+          <span class="persona-tag" data-i18n="p2_tag2">Compatible</span>
+          <span class="persona-tag" data-i18n="p2_tag3">Express</span>
+        </div>
+        <a href="#" class="persona-link" data-i18n="p2_link">Identifier ma pièce →</a>
+      </div>
+      <div class="persona-card reveal">
+        <div class="persona-icon">⭐</div>
+        <h3 data-i18n="p3_title">Je suis professionnel</h3>
+        <p data-i18n="p3_desc">Menuisier, cuisiniste, décorateur. Compte Pro, remises, paiement à 30j, livraison prioritaire.</p>
+        <div class="persona-tags">
+          <span class="persona-tag" data-i18n="p3_tag1">Pro -25%</span>
+          <span class="persona-tag" data-i18n="p3_tag2">B2B</span>
+          <span class="persona-tag" data-i18n="p3_tag3">Devis</span>
+        </div>
+        <a href="#" class="persona-link" data-i18n="p3_link">Devenir Pro →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIES ============ -->
+<section id="categories">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow" data-i18n="cat_eb">Catalogue 5 000+ références</div>
+        <h2 class="section-title"><span data-i18n="cat_t1">Toutes les </span><span class="red" data-i18n="cat_t2">catégories.</span></h2>
+        <p class="section-sub" data-i18n="cat_sub">De la charnière standard au kit d'éclairage LED haut de gamme.</p>
+      </div>
+      <a href="#" class="section-link" data-i18n="cat_link">Voir tout
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card featured reveal">
+        <div class="cat-bg">⚙</div>
+        <button class="cat-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        <div class="cat-overlay">
+          <span class="cat-count">★ Populaire · 1240</span>
+          <h3 class="cat-name" data-i18n="c1">Charnières</h3>
+          <p class="cat-desc" data-i18n="c1d">Soft-close, clip-on, 35mm. Toutes marques.</p>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <div class="cat-bg">▣</div>
+        <button class="cat-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        <div class="cat-overlay">
+          <span class="cat-count">820 produits</span>
+          <h3 class="cat-name" data-i18n="c2">Glissières</h3>
+          <p class="cat-desc" data-i18n="c2d">Tiroirs sortie totale, billes ou amortis.</p>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <div class="cat-bg">◇</div>
+        <button class="cat-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        <div class="cat-overlay">
+          <span class="cat-count">650 produits</span>
+          <h3 class="cat-name" data-i18n="c3">Poignées</h3>
+          <p class="cat-desc" data-i18n="c3d">Boutons, profilés, encastrées, design.</p>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <div class="cat-bg">⌬</div>
+        <button class="cat-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        <div class="cat-overlay">
+          <span class="cat-count">410 produits</span>
+          <h3 class="cat-name" data-i18n="c4">Serrures</h3>
+          <p class="cat-desc" data-i18n="c4d">Cylindres, gâches, sécurité.</p>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <div class="cat-bg">💡</div>
+        <button class="cat-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        <div class="cat-overlay">
+          <span class="cat-count" style="background:var(--gold);color:#000">★ NEW · 290</span>
+          <h3 class="cat-name" data-i18n="c5">Éclairage LED</h3>
+          <p class="cat-desc" data-i18n="c5d">Bandes, spots, capteurs détecteurs.</p>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <div class="cat-bg">⬡</div>
+        <button class="cat-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        <div class="cat-overlay">
+          <span class="cat-count">560 produits</span>
+          <h3 class="cat-name" data-i18n="c6">Vis & Fixations</h3>
+          <p class="cat-desc" data-i18n="c6d">Mini-fix, excentriques, équerres.</p>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <div class="cat-bg">◈</div>
+        <button class="cat-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        <div class="cat-overlay">
+          <span class="cat-count">320 produits</span>
+          <h3 class="cat-name" data-i18n="c7">Cuisine</h3>
+          <p class="cat-desc" data-i18n="c7d">Tirages, paniers coulissants, organiseurs.</p>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <div class="cat-bg">⊞</div>
+        <button class="cat-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        <div class="cat-overlay">
+          <span class="cat-count">240 produits</span>
+          <h3 class="cat-name" data-i18n="c8">Dressing</h3>
+          <p class="cat-desc" data-i18n="c8d">Penderies, étagères modulables, miroirs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow" data-i18n="prod_eb">Best-sellers du jour</div>
+        <h2 class="section-title"><span data-i18n="prod_t1">Les plus </span><span class="red" data-i18n="prod_t2">vendus</span><span data-i18n="prod_t3"> aujourd'hui</span></h2>
+      </div>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-tab="all" data-i18n="tab_all">Tous</button>
+      <button class="tab" data-tab="charnieres" data-i18n="tab_hinges">Charnières</button>
+      <button class="tab" data-tab="poignees" data-i18n="tab_handles">Poignées</button>
+      <button class="tab" data-tab="glissieres" data-i18n="tab_slides">Glissières</button>
+      <button class="tab" data-tab="led" data-i18n="tab_led">LED</button>
+      <button class="tab" data-tab="promo" data-i18n="tab_promo">★ En Promo</button>
+    </div>
+    <div class="product-grid" id="product-grid">
+      <!-- products injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECT BUILDER ============ -->
+<section class="builder" id="builder">
+  <div class="container">
+    <div class="builder-grid">
+      <div class="builder-content reveal">
+        <div class="section-eyebrow" style="color:var(--red)" data-i18n="b_eb">Outil exclusif SIMEX</div>
+        <h2><span data-i18n="b_t1">Le </span><span class="red" data-i18n="b_t2">configurateur</span><br><span data-i18n="b_t3">qui pense pour vous.</span></h2>
+        <p data-i18n="b_desc">Décrivez votre projet. Nous calculons la liste exacte de quincaillerie qu'il vous faut. Plus jamais d'oubli, plus jamais de mauvaise pièce.</p>
+        <ul class="builder-features">
+          <li><span class="check">✓</span><span data-i18n="b_f1">Sélectionnez vos meubles & dimensions</span></li>
+          <li><span class="check">✓</span><span data-i18n="b_f2">Liste de pièces générée en 5 secondes</span></li>
+          <li><span class="check">✓</span><span data-i18n="b_f3">Bundles avec -7% de remise auto</span></li>
+          <li><span class="check">✓</span><span data-i18n="b_f4">Vidéos de pose pour chaque pièce</span></li>
+        </ul>
+        <a href="#" class="btn btn-primary" data-i18n="b_cta">Lancer le configurateur
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="builder-mock reveal">
+        <div class="builder-mock-head">
+          <h4 data-i18n="b_mh">Cuisine 8 portes · 3 tiroirs</h4>
+          <span class="live"><span data-i18n="live">EN DIRECT</span></span>
+        </div>
+        <div class="builder-chips">
+          <span class="bchip on" data-i18n="bc1">8 portes battantes</span>
+          <span class="bchip on" data-i18n="bc2">3 tiroirs sortie totale</span>
+          <span class="bchip on" data-i18n="bc3">Soft-close partout</span>
+          <span class="bchip" data-i18n="bc4">+ Éclairage LED</span>
+          <span class="bchip" data-i18n="bc5">+ Poubelle coulissante</span>
+        </div>
+        <div class="bom">
+          <div class="bom-row"><span><span class="name" data-i18n="br1">Charnières clip-on 110°</span><span class="qty">×16</span></span><span class="price">128 TND</span></div>
+          <div class="bom-row"><span><span class="name" data-i18n="br2">Glissières amorties 450mm</span><span class="qty">×3 paires</span></span><span class="price">186 TND</span></div>
+          <div class="bom-row"><span><span class="name" data-i18n="br3">Poignées profilées noir mat</span><span class="qty">×11</span></span><span class="price">165 TND</span></div>
+          <div class="bom-row"><span><span class="name" data-i18n="br4">Mini-fix excentriques</span><span class="qty">×40</span></span><span class="price">52 TND</span></div>
+          <div class="bom-row"><span><span class="name" data-i18n="br5">Vis 4×16 zinguées</span><span class="qty">×100</span></span><span class="price">47 TND</span></div>
+        </div>
+        <div class="bom-total">
+          <div class="lbl" data-i18n="b_total">Total estimé · <span class="save">BUNDLE -7%</span></div>
+          <div class="amount">578 <span style="font-size:14px;color:var(--grey-4);letter-spacing:0">TND</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MISSION ============ -->
+<section class="mission">
+  <div class="container">
+    <div class="mission-grid">
+      <div class="mission-visual reveal">
+        <div class="mission-blob"></div>
+        <div class="mission-icon">⚙</div>
+      </div>
+      <div class="mission-content reveal">
+        <div class="section-eyebrow" data-i18n="m_eb">Notre mission</div>
+        <h2><span data-i18n="m_t1">Pour ceux qui </span><span class="red" data-i18n="m_t2">construisent.</span></h2>
+        <p class="mission-text" data-i18n="m_text">Notre mission est de proposer des <strong>solutions innovantes, fiables et esthétiques</strong> en matière de quincaillerie pour meubles. Nous nous engageons à offrir des produits de <strong>haute qualité</strong>, alliant fonctionnalité et design, afin d'accompagner les professionnels et les particuliers dans la réalisation de leurs projets d'aménagement intérieur. Grâce à notre expertise, notre service personnalisé et notre engagement envers la satisfaction du client, nous aspirons à être <strong>la référence</strong> dans le domaine de la quincaillerie pour meubles, en contribuant à la création d'<strong>espaces de vie élégants et durables</strong>.</p>
+        <div class="mission-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">⚡</div>
+            <h4 data-i18n="mp1_t">Innovation</h4>
+            <p data-i18n="mp1_d">Sélection rigoureuse des dernières technologies et tendances design.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🛡</div>
+            <h4 data-i18n="mp2_t">Fiabilité</h4>
+            <p data-i18n="mp2_d">Produits testés, garantis 2 ans, conformes aux standards européens.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">✦</div>
+            <h4 data-i18n="mp3_t">Esthétique</h4>
+            <p data-i18n="mp3_d">Une touche design pour chaque détail de votre intérieur.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEOS ============ -->
+<section class="video-section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow" data-i18n="v_eb">SIMEX TV · Tutos & Tests</div>
+        <h2 class="section-title" style="color:#fff"><span data-i18n="v_t1">On vous </span><span class="red" data-i18n="v_t2">montre tout.</span></h2>
+        <p class="section-sub" style="color:var(--grey-4)" data-i18n="v_sub">Pose, comparatif, démontage. Apprenez avec nos artisans.</p>
+      </div>
+      <a href="#" class="section-link" data-i18n="v_link">Tous les tutos
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="video-grid">
+      <div class="video-tile large">
+        <div class="video-bg">▶</div>
+        <button class="play-btn">▶</button>
+        <div class="video-overlay">
+          <div class="video-meta"><span data-i18n="v_meta1">Tutoriel · Niveau Débutant</span><span class="duration">12:30</span></div>
+          <h3 class="video-title" data-i18n="v_title1">Installer une charnière soft-close en 5 minutes</h3>
+        </div>
+      </div>
+      <div class="video-tile">
+        <div class="video-bg">⚙</div>
+        <button class="play-btn">▶</button>
+        <div class="video-overlay">
+          <div class="video-meta"><span data-i18n="v_meta2">Test produit</span><span class="duration">06:45</span></div>
+          <h3 class="video-title" data-i18n="v_title2">50 000 cycles : le test torture</h3>
+        </div>
+      </div>
+      <div class="video-tile">
+        <div class="video-bg">▣</div>
+        <button class="play-btn">▶</button>
+        <div class="video-overlay">
+          <div class="video-meta"><span data-i18n="v_meta3">Comparatif</span><span class="duration">08:20</span></div>
+          <h3 class="video-title" data-i18n="v_title3">Glissières billes vs amorties</h3>
+        </div>
+      </div>
+      <div class="video-tile">
+        <div class="video-bg">💡</div>
+        <button class="play-btn">▶</button>
+        <div class="video-overlay">
+          <div class="video-meta"><span data-i18n="v_meta4">Showroom</span><span class="duration">04:15</span></div>
+          <h3 class="video-title" data-i18n="v_title4">Notre nouveau showroom Tunis</h3>
+        </div>
+      </div>
+      <div class="video-tile">
+        <div class="video-bg">◇</div>
+        <button class="play-btn">▶</button>
+        <div class="video-overlay">
+          <div class="video-meta"><span data-i18n="v_meta5">Astuce Pro</span><span class="duration">03:50</span></div>
+          <h3 class="video-title" data-i18n="v_title5">L'erreur n°1 sur les poignées</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<div class="trust">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <div class="trust-icon">🚚</div>
+        <div class="trust-text">
+          <h4 data-i18n="t1_t">Livraison 24-48h</h4>
+          <p data-i18n="t1_d">Toute la Tunisie · Tracking GPS en temps réel</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🛡</div>
+        <div class="trust-text">
+          <h4 data-i18n="t2_t">Garantie 2 ans</h4>
+          <p data-i18n="t2_d">Échange ou remboursement sous 14j</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">💳</div>
+        <div class="trust-text">
+          <h4 data-i18n="t3_t">Paiement sécurisé</h4>
+          <p data-i18n="t3_d">CB, D17, Konnect, Espèces à la livraison</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">💬</div>
+        <div class="trust-text">
+          <h4 data-i18n="t4_t">Conseil expert</h4>
+          <p data-i18n="t4_d">WhatsApp · Chat · 7j/7</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-side">
+        <div class="section-eyebrow" data-i18n="f_eb">Suivi de commande</div>
+        <h2><span data-i18n="f_t1">Tout sur votre </span><span class="red" data-i18n="f_t2">livraison.</span></h2>
+        <p data-i18n="f_p">Votre commande est notre priorité. Voici comment elle vous parvient, étape par étape.</p>
+        <a href="#" class="btn btn-dark" data-i18n="f_cta">Suivre ma commande
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-i18n="fq1">Comment puis-je suivre ma commande ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="fa1">Une fois votre commande passée, vous recevrez un email de confirmation contenant un lien de suivi. Cliquez dessus pour voir l'état actuel de votre commande en temps réel : préparation, expédition, livraison.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-i18n="fq2">Quels sont les délais de livraison ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="fa2">Les délais varient en fonction de votre localisation. En général, comptez entre 24h et 48h pour les livraisons en Tunisie. Vous trouverez les délais exacts sur la page de votre commande.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-i18n="fq3">Que faire si je n'ai pas reçu ma commande ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="fa3">Si votre commande n'est pas arrivée dans les délais prévus, veuillez vérifier le statut sur votre lien de suivi. Si tout semble en ordre mais que vous n'avez toujours pas reçu votre colis, contactez notre service client à <strong>societesimex@gmail.com</strong> ou par téléphone au <strong>+216 97 730 083</strong>.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-i18n="fq4">Puis-je modifier l'adresse de livraison après avoir passé ma commande ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="fa4">Une fois la commande passée, il n'est pas possible de modifier l'adresse de livraison via votre compte. Cependant, vous pouvez nous contacter directement pour effectuer ce changement, à condition que la commande n'ait pas encore été expédiée.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-i18n="fq5">Quels modes de paiement acceptez-vous ?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="fa5">Carte bancaire (CB) via ClicToPay, Konnect, D17/Flouci, paiement à la livraison (espèces), virement bancaire et compte Pro avec paiement à 30 jours pour les professionnels validés.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-grid">
+      <div>
+        <h2><span data-i18n="n_t1">Restez dans la </span><span style="color:#000" data-i18n="n_t2">boucle.</span></h2>
+        <p data-i18n="n_p">Inscrivez-vous et recevez en avant-première les Happy Hours, ventes flash et nouveaux produits.</p>
+      </div>
+      <div>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <input type="email" placeholder="Votre email" data-i18n-placeholder="n_ph" required />
+          <button type="submit" data-i18n="n_btn">Je m'inscris</button>
+        </form>
+        <div class="newsletter-perks">
+          <span data-i18n="n_p1">10% sur la première commande</span>
+          <span data-i18n="n_p2">Pas de spam</span>
+          <span data-i18n="n_p3">Désabonnement 1-clic</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10,55 Q25,15 45,30 Q60,40 70,25" stroke="#E1252A" stroke-width="9" fill="none" stroke-linecap="round"/>
+              <circle cx="68" cy="26" r="4" fill="#E1252A"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <div class="logo-name">SIMEX</div>
+            <div class="logo-tagline">Furniture Hardware</div>
+          </div>
+        </div>
+        <p data-i18n="ft_brand">La référence tunisienne en quincaillerie pour meubles. Innovation, fiabilité et esthétique au service de vos projets.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">f</a>
+          <a href="#" class="social-btn">📷</a>
+          <a href="#" class="social-btn">▶</a>
+          <a href="#" class="social-btn">in</a>
+        </div>
+      </div>
+      <div>
+        <h5 data-i18n="ft_shop">Boutique</h5>
+        <ul>
+          <li><a href="#" data-i18n="ft_s1">Tous les produits</a></li>
+          <li><a href="#" data-i18n="ft_s2">Nouveautés</a></li>
+          <li><a href="#" data-i18n="ft_s3">Promotions</a></li>
+          <li><a href="#" data-i18n="ft_s4">Best-sellers</a></li>
+          <li><a href="#" data-i18n="ft_s5">Configurateur</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="ft_help">Aide & Service</h5>
+        <ul>
+          <li><a href="#" data-i18n="ft_h1">Suivi de commande</a></li>
+          <li><a href="#" data-i18n="ft_h2">Livraison</a></li>
+          <li><a href="#" data-i18n="ft_h3">Retours & garantie</a></li>
+          <li><a href="#" data-i18n="ft_h4">FAQ</a></li>
+          <li><a href="#" data-i18n="ft_h5">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="ft_about">SIMEX</h5>
+        <ul>
+          <li><a href="#" data-i18n="ft_a1">Notre mission</a></li>
+          <li><a href="#" data-i18n="ft_a2">Espace Pro</a></li>
+          <li><a href="#" data-i18n="ft_a3">Showroom</a></li>
+          <li><a href="#" data-i18n="ft_a4">Recrutement</a></li>
+          <li><a href="#" data-i18n="ft_a5">Mentions légales</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="ft_contact">Contact</h5>
+        <div class="footer-contact">
+          <div class="fc-item">
+            <div class="fc-icon">📞</div>
+            <div><strong data-i18n="ft_c_phone">Téléphone</strong>+216 97 730 083</div>
+          </div>
+          <div class="fc-item">
+            <div class="fc-icon">✉</div>
+            <div><strong data-i18n="ft_c_mail">Email</strong>societesimex@gmail.com</div>
+          </div>
+          <div class="fc-item">
+            <div class="fc-icon">📍</div>
+            <div><strong data-i18n="ft_c_loc">Boutique</strong>template-simex<br/>Tunisie</div>
+          </div>
+          <div class="fc-item">
+            <div class="fc-icon">🕐</div>
+            <div><strong data-i18n="ft_c_hrs">Horaires</strong><span data-i18n="ft_c_hrs_v">Lun-Sam · 9h-18h</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div data-i18n="ft_copy">© 2026 SIMEX · Tous droits réservés · Société tunisienne de quincaillerie pour meubles</div>
+      <div class="payment-badges">
+        <span>VISA</span>
+        <span>Mastercard</span>
+        <span>D17</span>
+        <span>Konnect</span>
+        <span data-i18n="ft_cod">Espèces</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ DRAWERS ============ -->
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<!-- WISHLIST DRAWER -->
+<aside class="drawer" id="drawer-wishlist">
+  <div class="drawer-head">
+    <h3>♥ <span data-i18n="dw_title">Liste de souhaits</span></h3>
+    <button class="drawer-close" onclick="closeAll()">×</button>
+  </div>
+  <div class="drawer-body" id="wishlist-body">
+    <div class="empty-state">
+      <div class="empty-state-icon">♡</div>
+      <h4 data-i18n="dw_empty_t">Votre liste est vide</h4>
+      <p data-i18n="dw_empty_p">Cliquez sur le cœur des produits qui vous plaisent pour les retrouver ici.</p>
+      <button class="btn btn-primary" onclick="closeAll()" data-i18n="dw_empty_btn">Découvrir le catalogue</button>
+    </div>
+  </div>
+</aside>
+
+<!-- CART DRAWER -->
+<aside class="drawer" id="drawer-cart">
+  <div class="drawer-head">
+    <h3>🛒 <span data-i18n="dc_title">Mon panier</span></h3>
+    <button class="drawer-close" onclick="closeAll()">×</button>
+  </div>
+  <div class="drawer-body" id="cart-body">
+    <div class="empty-state">
+      <div class="empty-state-icon">🛒</div>
+      <h4 data-i18n="dc_empty_t">Votre panier est vide</h4>
+      <p data-i18n="dc_empty_p">Ajoutez des produits pour démarrer votre commande.</p>
+      <button class="btn btn-primary" onclick="closeAll()" data-i18n="dc_empty_btn">Voir le catalogue</button>
+    </div>
+  </div>
+  <div class="drawer-foot" id="cart-foot" style="display:none">
+    <div class="cart-total">
+      <span class="lbl" data-i18n="dc_total">Total</span>
+      <span class="amt" id="cart-total-amt">0 TND</span>
+    </div>
+    <div class="cart-foot-actions">
+      <button class="btn btn-primary" data-i18n="dc_checkout">Passer la commande →</button>
+      <button class="btn btn-ghost" style="color:var(--black);border-color:var(--black)" onclick="closeAll()" data-i18n="dc_continue">Continuer mes achats</button>
+    </div>
+  </div>
+</aside>
+
+<!-- ACCOUNT MODAL -->
+<div class="modal" id="modal-account">
+  <div class="modal-head">
+    <h3 data-i18n="ma_title">Mon compte</h3>
+    <button class="drawer-close" onclick="closeAll()">×</button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-tabs">
+      <button class="modal-tab active" onclick="switchAuthTab('login', this)" data-i18n="ma_login">Connexion</button>
+      <button class="modal-tab" onclick="switchAuthTab('register', this)" data-i18n="ma_register">Inscription</button>
+    </div>
+    <div id="auth-login">
+      <div class="field">
+        <label data-i18n="ma_email">Email</label>
+        <input type="email" placeholder="vous@email.com" />
+      </div>
+      <div class="field">
+        <label data-i18n="ma_pwd">Mot de passe</label>
+        <input type="password" placeholder="••••••••" />
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="handleAuth('login')" data-i18n="ma_login_btn">Se connecter</button>
+      </div>
+    </div>
+    <div id="auth-register" style="display:none">
+      <div class="field">
+        <label data-i18n="ma_name">Nom & prénom</label>
+        <input type="text" placeholder="Mehdi Ben Ali" />
+      </div>
+      <div class="field">
+        <label data-i18n="ma_email">Email</label>
+        <input type="email" placeholder="vous@email.com" />
+      </div>
+      <div class="field">
+        <label data-i18n="ma_phone">Téléphone</label>
+        <input type="tel" placeholder="+216 ..." />
+      </div>
+      <div class="field">
+        <label data-i18n="ma_pwd">Mot de passe</label>
+        <input type="password" placeholder="••••••••" />
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="handleAuth('register')" data-i18n="ma_reg_btn">Créer mon compte</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-foot">
+    <span data-i18n="ma_pro">Vous êtes professionnel ?</span> <a href="#" data-i18n="ma_pro_link">Espace Pro →</a>
+  </div>
+</div>
+
+<!-- SEARCH MODAL -->
+<div class="search-modal" id="search-modal">
+  <div class="search-modal-inner">
+    <div class="search-modal-input-wrap">
+      <input type="text" id="search-input-modal" placeholder="Charnières, glissières, poignées, soft-close…" data-i18n-placeholder="sm_ph" />
+      <button class="search-modal-close" onclick="closeAll()">×</button>
+    </div>
+    <div class="search-suggestions">
+      <h5 data-i18n="sm_pop">Recherches populaires</h5>
+      <div class="search-tags">
+        <button class="search-tag">charnière soft-close</button>
+        <button class="search-tag">glissière 450mm</button>
+        <button class="search-tag">poignée noir mat</button>
+        <button class="search-tag">éclairage LED</button>
+        <button class="search-tag">serrure cylindre</button>
+        <button class="search-tag">mini-fix</button>
+      </div>
+      <h5 data-i18n="sm_results">Suggestions</h5>
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-icon">✓</div>
+  <span id="toast-msg">Ajouté !</span>
+</div>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/21697730083" class="whatsapp-fab" target="_blank" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.9-2.1-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.8.9-3.1-.2-.3C3.9 14.7 3.5 13.4 3.5 12c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5-3.8 8-8.5 8z"/></svg>
+</a>
+
+<!-- ============ JS ============ -->
+<script>
+/* ===== STATE ===== */
+const state = {
+  lang: 'fr',
+  currentSlide: 0,
+  cart: [],
+  wishlist: [],
+  currentTab: 'all',
+  user: null,
+};
+
+/* ===== PRODUCTS ===== */
+const products = [
+  {id:1, cat:'charnieres', name:{fr:'Charnière Clip-on Soft-close 110°',en:'Clip-on Soft-close Hinge 110°',ar:'مفصلة كليب أون سوفت كلوز 110°'}, price:14, was:18, icon:'⚙', tags:['hot'], rating:4.8, reviews:142, stock:'high'},
+  {id:2, cat:'glissieres', name:{fr:'Glissière à billes 450mm',en:'Ball Bearing Slide 450mm',ar:'مزلجة كروية 450 ملم'}, price:32, was:42, icon:'▣', tags:['sale'], rating:4.7, reviews:89, stock:'high'},
+  {id:3, cat:'poignees', name:{fr:'Poignée profilée Noir Mat 192mm',en:'Matte Black Profile Handle 192mm',ar:'مقبض أسود مات 192 ملم'}, price:18, was:null, icon:'◇', tags:['new'], rating:4.9, reviews:56, stock:'high'},
+  {id:4, cat:'led', name:{fr:'Bandeau LED 5m + Capteur',en:'LED Strip 5m + Sensor',ar:'شريط ليد 5م + مستشعر'}, price:89, was:120, icon:'💡', tags:['hot','sale'], rating:4.6, reviews:78, stock:'low'},
+  {id:5, cat:'charnieres', name:{fr:'Charnière invisible 3D',en:'Invisible 3D Hinge',ar:'مفصلة خفية ثلاثية الأبعاد'}, price:42, was:null, icon:'⚙', tags:['new'], rating:4.9, reviews:34, stock:'high'},
+  {id:6, cat:'poignees', name:{fr:'Bouton laiton vintage',en:'Vintage Brass Knob',ar:'مقبض نحاسي عتيق'}, price:9, was:14, icon:'◈', tags:['sale'], rating:4.5, reviews:201, stock:'high'},
+  {id:7, cat:'glissieres', name:{fr:'Glissière sortie totale amortie',en:'Full Extension Soft-close Slide',ar:'مزلجة كاملة الإخراج بتخميد'}, price:54, was:null, icon:'▣', tags:[], rating:4.8, reviews:67, stock:'high'},
+  {id:8, cat:'led', name:{fr:'Spot LED encastrable Ø60',en:'Recessed LED Spot Ø60',ar:'بقعة ليد مدمجة Ø60'}, price:24, was:32, icon:'◉', tags:['eco','sale'], rating:4.7, reviews:91, stock:'low'},
+];
+
+const i18n = {
+  fr:{
+    phone:'+216 97 730 083',open:'Boutique ouverte · Livraison sous 24-48h',
+    nav_all:'Tous les produits',nav_kitchen:'Cuisine',nav_wardrobe:'Dressing',nav_door:'Portes',nav_drawer:'Tiroirs',nav_lighting:'Éclairage',nav_builder:'Configurateur',nav_pro:'★ Espace Pro',
+    cta_pro:'Vous êtes professionnel ?',cta_disc:"Jusqu'à -25%",
+    search_ph:'Charnières, glissières, poignées…',
+    s1_eb:'Nouveau · Catalogue 2026',s1_t1:'Plus que de la',s1_t2:'quincaillerie.',s1_t3:'Une révolution.',s1_desc:'5 000+ références de quincaillerie pour meubles. Sélectionnées, testées, livrées partout en Tunisie en 24-48h.',s1_b1:'Découvrir le catalogue',s1_b2:'▶ Voir le configurateur',
+    s2_eb:'Cuisine · Premium',s2_t1:'Charnières',s2_t2:'à fermeture',s2_t3:'douce.',s2_desc:'Mécanisme soft-close garanti 50 000 cycles. La performance allemande, le prix tunisien.',s2_b1:'Voir la collection',s2_b2:"Guide d'installation",
+    s3_eb:'Espace Pro · Réservé aux professionnels',s3_t1:'Menuisier ?',s3_t2:'Décorateur ?',s3_t3:'On vous équipe.',s3_desc:'Compte Pro avec remises jusqu\'à -25%, paiement à 30j, livraison prioritaire et conseiller dédié.',s3_b1:'Devenir Pro gratuit',s3_b2:'Voir les avantages',
+    pro_title:'Tableau Pro',
+    hh_title:'HAPPY HOUR · -30% sur tout',hh_sub:'Profitez de notre flash sale, livraison express incluse',hh_cta:'Profiter →',hr:'HEURES',min:'MIN',sec:'SEC',
+    per_eb:'Trouvez votre voie',per_t1:'Qui ',per_t2:'êtes-vous',per_t3:" aujourd'hui ?",
+    p1_title:'Je rénove chez moi',p1_desc:'Cuisine, dressing, salle de bain… Trouvez la quincaillerie qui transformera votre intérieur.',p1_tag1:'Particulier',p1_tag2:'DIY',p1_tag3:'Décoration',p1_link:'Explorer →',
+    p2_title:'Je répare un meuble',p2_desc:'Charnière cassée, glissière qui coince ? Identifiez et commandez la pièce exacte.',p2_tag1:'Pièces détachées',p2_tag2:'Compatible',p2_tag3:'Express',p2_link:'Identifier ma pièce →',
+    p3_title:'Je suis professionnel',p3_desc:'Menuisier, cuisiniste, décorateur. Compte Pro, remises, paiement à 30j, livraison prioritaire.',p3_tag1:'Pro -25%',p3_tag2:'B2B',p3_tag3:'Devis',p3_link:'Devenir Pro →',
+    cat_eb:'Catalogue 5 000+ références',cat_t1:'Toutes les ',cat_t2:'catégories.',cat_sub:"De la charnière standard au kit d'éclairage LED haut de gamme.",cat_link:'Voir tout',
+    c1:'Charnières',c1d:'Soft-close, clip-on, 35mm. Toutes marques.',c2:'Glissières',c2d:'Tiroirs sortie totale, billes ou amortis.',c3:'Poignées',c3d:'Boutons, profilés, encastrées, design.',c4:'Serrures',c4d:'Cylindres, gâches, sécurité.',c5:'Éclairage LED',c5d:'Bandes, spots, capteurs détecteurs.',c6:'Vis & Fixations',c6d:'Mini-fix, excentriques, équerres.',c7:'Cuisine',c7d:'Tirages, paniers coulissants, organiseurs.',c8:'Dressing',c8d:'Penderies, étagères modulables, miroirs.',
+    prod_eb:'Best-sellers du jour',prod_t1:'Les plus ',prod_t2:'vendus',prod_t3:" aujourd'hui",
+    tab_all:'Tous',tab_hinges:'Charnières',tab_handles:'Poignées',tab_slides:'Glissières',tab_led:'LED',tab_promo:'★ En Promo',
+    b_eb:'Outil exclusif SIMEX',b_t1:'Le ',b_t2:'configurateur',b_t3:'qui pense pour vous.',b_desc:'Décrivez votre projet. Nous calculons la liste exacte de quincaillerie qu\'il vous faut. Plus jamais d\'oubli, plus jamais de mauvaise pièce.',
+    b_f1:'Sélectionnez vos meubles & dimensions',b_f2:'Liste de pièces générée en 5 secondes',b_f3:'Bundles avec -7% de remise auto',b_f4:'Vidéos de pose pour chaque pièce',b_cta:'Lancer le configurateur',
+    b_mh:'Cuisine 8 portes · 3 tiroirs',live:'EN DIRECT',
+    bc1:'8 portes battantes',bc2:'3 tiroirs sortie totale',bc3:'Soft-close partout',bc4:'+ Éclairage LED',bc5:'+ Poubelle coulissante',
+    br1:'Charnières clip-on 110°',br2:'Glissières amorties 450mm',br3:'Poignées profilées noir mat',br4:'Mini-fix excentriques',br5:'Vis 4×16 zinguées',
+    b_total:'Total estimé · ',
+    m_eb:'Notre mission',m_t1:'Pour ceux qui ',m_t2:'construisent.',
+    m_text:'Notre mission est de proposer des <strong>solutions innovantes, fiables et esthétiques</strong> en matière de quincaillerie pour meubles. Nous nous engageons à offrir des produits de <strong>haute qualité</strong>, alliant fonctionnalité et design, afin d\'accompagner les professionnels et les particuliers dans la réalisation de leurs projets d\'aménagement intérieur. Grâce à notre expertise, notre service personnalisé et notre engagement envers la satisfaction du client, nous aspirons à être <strong>la référence</strong> dans le domaine de la quincaillerie pour meubles, en contribuant à la création d\'<strong>espaces de vie élégants et durables</strong>.',
+    mp1_t:'Innovation',mp1_d:'Sélection rigoureuse des dernières technologies et tendances design.',
+    mp2_t:'Fiabilité',mp2_d:'Produits testés, garantis 2 ans, conformes aux standards européens.',
+    mp3_t:'Esthétique',mp3_d:'Une touche design pour chaque détail de votre intérieur.',
+    v_eb:'SIMEX TV · Tutos & Tests',v_t1:'On vous ',v_t2:'montre tout.',v_sub:'Pose, comparatif, démontage. Apprenez avec nos artisans.',v_link:'Tous les tutos',
+    v_meta1:'Tutoriel · Niveau Débutant',v_title1:'Installer une charnière soft-close en 5 minutes',
+    v_meta2:'Test produit',v_title2:'50 000 cycles : le test torture',
+    v_meta3:'Comparatif',v_title3:'Glissières billes vs amorties',
+    v_meta4:'Showroom',v_title4:'Notre nouveau showroom Tunis',
+    v_meta5:'Astuce Pro',v_title5:'L\'erreur n°1 sur les poignées',
+    t1_t:'Livraison 24-48h',t1_d:'Toute la Tunisie · Tracking GPS en temps réel',
+    t2_t:'Garantie 2 ans',t2_d:'Échange ou remboursement sous 14j',
+    t3_t:'Paiement sécurisé',t3_d:'CB, D17, Konnect, Espèces à la livraison',
+    t4_t:'Conseil expert',t4_d:'WhatsApp · Chat · 7j/7',
+    f_eb:'Suivi de commande',f_t1:'Tout sur votre ',f_t2:'livraison.',f_p:'Votre commande est notre priorité. Voici comment elle vous parvient, étape par étape.',f_cta:'Suivre ma commande',
+    fq1:'Comment puis-je suivre ma commande ?',
+    fa1:'Une fois votre commande passée, vous recevrez un email de confirmation contenant un lien de suivi. Cliquez dessus pour voir l\'état actuel de votre commande en temps réel : préparation, expédition, livraison.',
+    fq2:'Quels sont les délais de livraison ?',
+    fa2:'Les délais varient en fonction de votre localisation. En général, comptez entre 24h et 48h pour les livraisons en Tunisie. Vous trouverez les délais exacts sur la page de votre commande.',
+    fq3:'Que faire si je n\'ai pas reçu ma commande ?',
+    fa3:'Si votre commande n\'est pas arrivée dans les délais prévus, veuillez vérifier le statut sur votre lien de suivi. Si tout semble en ordre mais que vous n\'avez toujours pas reçu votre colis, contactez notre service client à <strong>societesimex@gmail.com</strong> ou par téléphone au <strong>+216 97 730 083</strong>.',
+    fq4:'Puis-je modifier l\'adresse de livraison après avoir passé ma commande ?',
+    fa4:'Une fois la commande passée, il n\'est pas possible de modifier l\'adresse de livraison via votre compte. Cependant, vous pouvez nous contacter directement pour effectuer ce changement, à condition que la commande n\'ait pas encore été expédiée.',
+    fq5:'Quels modes de paiement acceptez-vous ?',
+    fa5:'Carte bancaire (CB) via ClicToPay, Konnect, D17/Flouci, paiement à la livraison (espèces), virement bancaire et compte Pro avec paiement à 30 jours pour les professionnels validés.',
+    n_t1:'Restez dans la ',n_t2:'boucle.',n_p:'Inscrivez-vous et recevez en avant-première les Happy Hours, ventes flash et nouveaux produits.',n_ph:'Votre email',n_btn:'Je m\'inscris',n_p1:'10% sur la première commande',n_p2:'Pas de spam',n_p3:'Désabonnement 1-clic',
+    ft_brand:'La référence tunisienne en quincaillerie pour meubles. Innovation, fiabilité et esthétique au service de vos projets.',
+    ft_shop:'Boutique',ft_s1:'Tous les produits',ft_s2:'Nouveautés',ft_s3:'Promotions',ft_s4:'Best-sellers',ft_s5:'Configurateur',
+    ft_help:'Aide & Service',ft_h1:'Suivi de commande',ft_h2:'Livraison',ft_h3:'Retours & garantie',ft_h4:'FAQ',ft_h5:'Contact',
+    ft_about:'SIMEX',ft_a1:'Notre mission',ft_a2:'Espace Pro',ft_a3:'Showroom',ft_a4:'Recrutement',ft_a5:'Mentions légales',
+    ft_contact:'Contact',ft_c_phone:'Téléphone',ft_c_mail:'Email',ft_c_loc:'Boutique',ft_c_hrs:'Horaires',ft_c_hrs_v:'Lun-Sam · 9h-18h',
+    ft_copy:'© 2026 SIMEX · Tous droits réservés · Société tunisienne de quincaillerie pour meubles',ft_cod:'Espèces',
+    dw_title:'Liste de souhaits',dw_empty_t:'Votre liste est vide',dw_empty_p:'Cliquez sur le cœur des produits qui vous plaisent pour les retrouver ici.',dw_empty_btn:'Découvrir le catalogue',
+    dc_title:'Mon panier',dc_empty_t:'Votre panier est vide',dc_empty_p:'Ajoutez des produits pour démarrer votre commande.',dc_empty_btn:'Voir le catalogue',dc_total:'Total',dc_checkout:'Passer la commande →',dc_continue:'Continuer mes achats',
+    ma_title:'Mon compte',ma_login:'Connexion',ma_register:'Inscription',ma_email:'Email',ma_pwd:'Mot de passe',ma_login_btn:'Se connecter',ma_name:'Nom & prénom',ma_phone:'Téléphone',ma_reg_btn:'Créer mon compte',ma_pro:'Vous êtes professionnel ?',ma_pro_link:'Espace Pro →',
+    sm_ph:'Charnières, glissières, poignées, soft-close…',sm_pop:'Recherches populaires',sm_results:'Suggestions',
+    add_cart:'Ajouter au panier',quick_view:'Aperçu',in_stock:'En stock',low_stock:'Stock limité',
+    toast_cart:'Ajouté au panier',toast_wish:'Ajouté à la liste',toast_wish_off:'Retiré de la liste',toast_news:'Inscription réussie ! 10% offerts.',toast_login:'Connecté !',toast_reg:'Compte créé !'
+  },
+  en:{
+    phone:'+216 97 730 083',open:'Shop open · 24-48h delivery',
+    nav_all:'All products',nav_kitchen:'Kitchen',nav_wardrobe:'Wardrobe',nav_door:'Doors',nav_drawer:'Drawers',nav_lighting:'Lighting',nav_builder:'Builder',nav_pro:'★ Pro Hub',
+    cta_pro:'Are you a professional?',cta_disc:'Up to -25%',
+    search_ph:'Hinges, slides, handles…',
+    s1_eb:'New · 2026 Catalog',s1_t1:'More than',s1_t2:'hardware.',s1_t3:'A revolution.',s1_desc:'5,000+ furniture hardware references. Curated, tested, delivered across Tunisia in 24-48h.',s1_b1:'Browse catalog',s1_b2:'▶ See builder',
+    s2_eb:'Kitchen · Premium',s2_t1:'Soft-close',s2_t2:'hinges that',s2_t3:'whisper.',s2_desc:'Soft-close mechanism guaranteed for 50,000 cycles. German performance, Tunisian price.',s2_b1:'View collection',s2_b2:'Install guide',
+    s3_eb:'Pro Hub · Reserved for trade',s3_t1:'Carpenter?',s3_t2:'Designer?',s3_t3:"We've got you.",s3_desc:'Pro account with up to -25% discount, 30-day terms, priority delivery and dedicated advisor.',s3_b1:'Become Pro for free',s3_b2:'See benefits',
+    pro_title:'Pro Dashboard',
+    hh_title:'HAPPY HOUR · -30% off everything',hh_sub:'Flash sale, express delivery included',hh_cta:'Shop now →',hr:'HOURS',min:'MIN',sec:'SEC',
+    per_eb:'Find your path',per_t1:'Who ',per_t2:'are you',per_t3:' today?',
+    p1_title:'I\'m renovating',p1_desc:'Kitchen, wardrobe, bathroom… Find the hardware that will transform your interior.',p1_tag1:'Homeowner',p1_tag2:'DIY',p1_tag3:'Decoration',p1_link:'Explore →',
+    p2_title:'I\'m fixing furniture',p2_desc:'Broken hinge, jammed slide? Identify and order the exact part.',p2_tag1:'Spare parts',p2_tag2:'Compatible',p2_tag3:'Express',p2_link:'Identify part →',
+    p3_title:'I am a professional',p3_desc:'Carpenter, kitchen designer, decorator. Pro account, discounts, 30-day terms, priority delivery.',p3_tag1:'Pro -25%',p3_tag2:'B2B',p3_tag3:'Quote',p3_link:'Become Pro →',
+    cat_eb:'5,000+ references catalog',cat_t1:'All ',cat_t2:'categories.',cat_sub:'From standard hinges to premium LED lighting kits.',cat_link:'See all',
+    c1:'Hinges',c1d:'Soft-close, clip-on, 35mm. All brands.',c2:'Slides',c2d:'Full extension, ball or soft-close.',c3:'Handles',c3d:'Knobs, profiles, recessed, designer.',c4:'Locks',c4d:'Cylinders, strikes, security.',c5:'LED Lighting',c5d:'Strips, spots, motion sensors.',c6:'Screws & Fixings',c6d:'Mini-fix, cams, brackets.',c7:'Kitchen',c7d:'Pull-outs, sliding baskets, organizers.',c8:'Wardrobe',c8d:'Rails, modular shelves, mirrors.',
+    prod_eb:'Today\'s best-sellers',prod_t1:'Most ',prod_t2:'sold',prod_t3:' today',
+    tab_all:'All',tab_hinges:'Hinges',tab_handles:'Handles',tab_slides:'Slides',tab_led:'LED',tab_promo:'★ On Sale',
+    b_eb:'Exclusive SIMEX tool',b_t1:'The ',b_t2:'builder',b_t3:'that thinks for you.',b_desc:'Describe your project. We compute the exact list of hardware you need. No more forgotten parts, no more wrong fits.',
+    b_f1:'Pick your cabinets & dimensions',b_f2:'Parts list generated in 5 seconds',b_f3:'Bundles with auto -7% off',b_f4:'Install videos for every part',b_cta:'Launch the builder',
+    b_mh:'Kitchen 8 doors · 3 drawers',live:'LIVE',
+    bc1:'8 doors',bc2:'3 full-extension drawers',bc3:'Soft-close everywhere',bc4:'+ LED lighting',bc5:'+ Sliding bin',
+    br1:'Clip-on hinges 110°',br2:'Soft-close slides 450mm',br3:'Profile handles matte black',br4:'Eccentric mini-fix',br5:'Screws 4×16 zinc',
+    b_total:'Estimated total · ',
+    m_eb:'Our mission',m_t1:'For those who ',m_t2:'build.',
+    m_text:'Our mission is to provide <strong>innovative, reliable and aesthetic solutions</strong> in furniture hardware. We are committed to offering <strong>high-quality products</strong> combining functionality and design, supporting professionals and homeowners in their interior projects. Through our expertise, personalized service and customer commitment, we aspire to be <strong>the reference</strong> in furniture hardware, contributing to the creation of <strong>elegant and lasting living spaces</strong>.',
+    mp1_t:'Innovation',mp1_d:'Strict curation of the latest technologies and design trends.',
+    mp2_t:'Reliability',mp2_d:'Tested products, 2-year warranty, European standards.',
+    mp3_t:'Aesthetics',mp3_d:'A design touch on every interior detail.',
+    v_eb:'SIMEX TV · Tutorials & Tests',v_t1:'We show ',v_t2:'you everything.',v_sub:'Install, compare, dismount. Learn with our craftsmen.',v_link:'All tutorials',
+    v_meta1:'Tutorial · Beginner',v_title1:'Install a soft-close hinge in 5 minutes',
+    v_meta2:'Product test',v_title2:'50,000 cycles: the torture test',
+    v_meta3:'Comparison',v_title3:'Ball vs soft-close slides',
+    v_meta4:'Showroom',v_title4:'Our new Tunis showroom',
+    v_meta5:'Pro tip',v_title5:'The #1 mistake on handles',
+    t1_t:'Delivery 24-48h',t1_d:'All Tunisia · Real-time GPS tracking',
+    t2_t:'2-year warranty',t2_d:'Exchange or refund within 14 days',
+    t3_t:'Secure payment',t3_d:'Card, D17, Konnect, Cash on delivery',
+    t4_t:'Expert advice',t4_d:'WhatsApp · Chat · 7 days/week',
+    f_eb:'Order tracking',f_t1:'Everything about your ',f_t2:'delivery.',f_p:'Your order is our priority. Here is how it reaches you, step by step.',f_cta:'Track my order',
+    fq1:'How can I track my order?',
+    fa1:'Once your order is placed, you will receive a confirmation email with a tracking link. Click it to see your order status in real time: preparation, shipping, delivery.',
+    fq2:'What are the delivery times?',
+    fa2:'Delivery times depend on your location. Generally between 24h and 48h across Tunisia. Exact times shown on your order page.',
+    fq3:'What if I haven\'t received my order?',
+    fa3:'If your order has not arrived in the expected time, please check status on your tracking link. If everything seems fine but you still haven\'t received your package, contact our customer service at <strong>societesimex@gmail.com</strong> or by phone at <strong>+216 97 730 083</strong>.',
+    fq4:'Can I change the delivery address after placing my order?',
+    fa4:'Once the order is placed, you cannot change the delivery address through your account. However, you can contact us directly to make this change, provided the order has not yet been shipped.',
+    fq5:'What payment methods do you accept?',
+    fa5:'Bank card (CB) via ClicToPay, Konnect, D17/Flouci, cash on delivery, bank transfer, and Pro account with 30-day payment terms for verified professionals.',
+    n_t1:'Stay in the ',n_t2:'loop.',n_p:'Subscribe and get early access to Happy Hours, flash sales and new products.',n_ph:'Your email',n_btn:'Subscribe',n_p1:'10% off first order',n_p2:'No spam',n_p3:'1-click unsubscribe',
+    ft_brand:'The Tunisian reference for furniture hardware. Innovation, reliability and aesthetics for your projects.',
+    ft_shop:'Shop',ft_s1:'All products',ft_s2:'New arrivals',ft_s3:'Promotions',ft_s4:'Best-sellers',ft_s5:'Builder',
+    ft_help:'Help & Service',ft_h1:'Order tracking',ft_h2:'Delivery',ft_h3:'Returns & warranty',ft_h4:'FAQ',ft_h5:'Contact',
+    ft_about:'SIMEX',ft_a1:'Our mission',ft_a2:'Pro Hub',ft_a3:'Showroom',ft_a4:'Careers',ft_a5:'Legal',
+    ft_contact:'Contact',ft_c_phone:'Phone',ft_c_mail:'Email',ft_c_loc:'Shop',ft_c_hrs:'Hours',ft_c_hrs_v:'Mon-Sat · 9am-6pm',
+    ft_copy:'© 2026 SIMEX · All rights reserved · Tunisian furniture hardware company',ft_cod:'Cash',
+    dw_title:'Wishlist',dw_empty_t:'Your list is empty',dw_empty_p:'Tap the heart on products you love to find them here.',dw_empty_btn:'Browse catalog',
+    dc_title:'My cart',dc_empty_t:'Your cart is empty',dc_empty_p:'Add products to start your order.',dc_empty_btn:'See catalog',dc_total:'Total',dc_checkout:'Checkout →',dc_continue:'Continue shopping',
+    ma_title:'My account',ma_login:'Sign in',ma_register:'Sign up',ma_email:'Email',ma_pwd:'Password',ma_login_btn:'Sign in',ma_name:'Full name',ma_phone:'Phone',ma_reg_btn:'Create account',ma_pro:'Are you a professional?',ma_pro_link:'Pro Hub →',
+    sm_ph:'Hinges, slides, handles, soft-close…',sm_pop:'Popular searches',sm_results:'Suggestions',
+    add_cart:'Add to cart',quick_view:'Quick view',in_stock:'In stock',low_stock:'Low stock',
+    toast_cart:'Added to cart',toast_wish:'Added to wishlist',toast_wish_off:'Removed from wishlist',toast_news:'Subscribed! 10% off coming.',toast_login:'Logged in!',toast_reg:'Account created!'
+  },
+  ar:{
+    phone:'+216 97 730 083',open:'المتجر مفتوح · توصيل خلال 24-48 ساعة',
+    nav_all:'كل المنتجات',nav_kitchen:'مطبخ',nav_wardrobe:'خزانة',nav_door:'أبواب',nav_drawer:'أدراج',nav_lighting:'إضاءة',nav_builder:'المُكوِّن',nav_pro:'★ فضاء المحترفين',
+    cta_pro:'هل أنت محترف؟',cta_disc:'حتى -25%',
+    search_ph:'مفصلات، مزالج، مقابض…',
+    s1_eb:'جديد · كتالوج 2026',s1_t1:'أكثر من مجرد',s1_t2:'تجهيزات.',s1_t3:'ثورة كاملة.',s1_desc:'+5000 منتج تجهيزات للأثاث. منتقاة، مختبرة، تصل إليك في تونس خلال 24-48 ساعة.',s1_b1:'استكشف الكتالوج',s1_b2:'▶ شاهد المُكوِّن',
+    s2_eb:'مطبخ · بريميوم',s2_t1:'مفصلات',s2_t2:'بإغلاق',s2_t3:'ناعم.',s2_desc:'آلية إغلاق ناعم مضمونة لـ 50,000 دورة. أداء ألماني، سعر تونسي.',s2_b1:'شاهد المجموعة',s2_b2:'دليل التركيب',
+    s3_eb:'فضاء المحترفين · للمحترفين فقط',s3_t1:'نجار؟',s3_t2:'مصمم؟',s3_t3:'نحن نجهزك.',s3_desc:'حساب محترف بتخفيض حتى -25%، دفع بـ30 يوماً، توصيل أولوية ومستشار مخصص.',s3_b1:'انضم مجاناً',s3_b2:'شاهد المزايا',
+    pro_title:'لوحة المحترف',
+    hh_title:'الساعة السعيدة · -30% على كل شيء',hh_sub:'بيع سريع، توصيل سريع مشمول',hh_cta:'استفد →',hr:'ساعات',min:'دقيقة',sec:'ثانية',
+    per_eb:'اعثر على طريقك',per_t1:'من ',per_t2:'أنت',per_t3:' اليوم؟',
+    p1_title:'أرمم منزلي',p1_desc:'مطبخ، خزانة، حمام… اعثر على التجهيزات التي ستحول منزلك.',p1_tag1:'فرد',p1_tag2:'افعلها بنفسك',p1_tag3:'ديكور',p1_link:'استكشف →',
+    p2_title:'أصلح أثاثاً',p2_desc:'مفصلة مكسورة، مزلجة عالقة؟ حدد واطلب القطعة المناسبة.',p2_tag1:'قطع غيار',p2_tag2:'متوافق',p2_tag3:'سريع',p2_link:'حدد القطعة →',
+    p3_title:'أنا محترف',p3_desc:'نجار، مصمم مطابخ، ديكور. حساب محترف، خصومات، دفع بـ30 يوماً، توصيل أولوية.',p3_tag1:'محترف -25%',p3_tag2:'B2B',p3_tag3:'عرض سعر',p3_link:'انضم →',
+    cat_eb:'كتالوج +5000 منتج',cat_t1:'كل ',cat_t2:'الفئات.',cat_sub:'من المفصلات العادية إلى أطقم الإضاءة LED الفاخرة.',cat_link:'شاهد الكل',
+    c1:'مفصلات',c1d:'إغلاق ناعم، كليب-أون، 35مم.',c2:'مزالج',c2d:'سحب كامل، كروية أو ناعمة.',c3:'مقابض',c3d:'أزرار، بروفايل، خفية، ديزاين.',c4:'أقفال',c4d:'أسطوانات، صفائح، أمان.',c5:'إضاءة LED',c5d:'شرائط، بقع، مستشعرات.',c6:'براغي وتثبيت',c6d:'ميني-فيكس، اللامركزية، زوايا.',c7:'مطبخ',c7d:'سحابات، سلال منزلقة، منظمات.',c8:'خزانة',c8d:'قضبان، أرفف معيارية، مرايا.',
+    prod_eb:'الأكثر مبيعاً اليوم',prod_t1:'الأكثر ',prod_t2:'مبيعاً',prod_t3:' اليوم',
+    tab_all:'الكل',tab_hinges:'مفصلات',tab_handles:'مقابض',tab_slides:'مزالج',tab_led:'LED',tab_promo:'★ تخفيضات',
+    b_eb:'أداة حصرية SIMEX',b_t1:'المُكوِّن ',b_t2:'الذكي',b_t3:'الذي يفكر لك.',b_desc:'صف مشروعك. نحن نحسب القائمة الدقيقة للتجهيزات التي تحتاجها.',
+    b_f1:'اختر خزائنك وأبعادك',b_f2:'قائمة جاهزة في 5 ثوان',b_f3:'حزم بـ-7% خصم تلقائي',b_f4:'فيديوهات تركيب لكل قطعة',b_cta:'ابدأ المُكوِّن',
+    b_mh:'مطبخ 8 أبواب · 3 أدراج',live:'مباشر',
+    bc1:'8 أبواب',bc2:'3 أدراج كاملة',bc3:'إغلاق ناعم',bc4:'+ إضاءة LED',bc5:'+ سلة منزلقة',
+    br1:'مفصلات كليب-أون 110°',br2:'مزالج ناعمة 450مم',br3:'مقابض أسود مات',br4:'ميني-فيكس',br5:'براغي 4×16',
+    b_total:'الإجمالي · ',
+    m_eb:'مهمتنا',m_t1:'لمن ',m_t2:'يبنون.',
+    m_text:'مهمتنا هي تقديم <strong>حلول مبتكرة وموثوقة وجمالية</strong> في تجهيزات الأثاث. نلتزم بتقديم منتجات <strong>عالية الجودة</strong> تجمع بين الوظيفية والتصميم لمرافقة المحترفين والأفراد. بفضل خبرتنا وخدمتنا الشخصية والتزامنا برضا العميل، نطمح أن نكون <strong>المرجع</strong> في مجال تجهيزات الأثاث، مساهمين في خلق <strong>فضاءات معيشة أنيقة ودائمة</strong>.',
+    mp1_t:'الابتكار',mp1_d:'انتقاء صارم لأحدث التقنيات وتوجهات التصميم.',
+    mp2_t:'الموثوقية',mp2_d:'منتجات مختبرة، ضمان عامين، معايير أوروبية.',
+    mp3_t:'الجمالية',mp3_d:'لمسة تصميم لكل تفصيلة في منزلك.',
+    v_eb:'SIMEX TV · شروحات واختبارات',v_t1:'نريك ',v_t2:'كل شيء.',v_sub:'تركيب، مقارنة، فك. تعلم مع حرفيينا.',v_link:'كل الشروحات',
+    v_meta1:'شرح · مبتدئ',v_title1:'ركّب مفصلة سوفت-كلوز في 5 دقائق',
+    v_meta2:'اختبار',v_title2:'50,000 دورة: اختبار التحمل',
+    v_meta3:'مقارنة',v_title3:'مزالج كروية ضد ناعمة',
+    v_meta4:'صالة العرض',v_title4:'صالة عرضنا الجديدة بتونس',
+    v_meta5:'نصيحة محترف',v_title5:'الخطأ رقم 1 على المقابض',
+    t1_t:'توصيل 24-48 ساعة',t1_d:'كل تونس · تتبع GPS مباشر',
+    t2_t:'ضمان عامين',t2_d:'استبدال أو استرداد خلال 14 يوماً',
+    t3_t:'دفع آمن',t3_d:'بطاقة، D17، Konnect، نقداً عند التسليم',
+    t4_t:'استشارة خبراء',t4_d:'واتساب · دردشة · 7/7',
+    f_eb:'تتبع الطلب',f_t1:'كل شيء عن ',f_t2:'توصيلك.',f_p:'طلبك أولويتنا. هكذا يصلك خطوة بخطوة.',f_cta:'تتبع طلبي',
+    fq1:'كيف أتتبع طلبي؟',
+    fa1:'بمجرد تأكيد طلبك، ستستلم بريداً إلكترونياً يحتوي على رابط التتبع. اضغط عليه لرؤية حالة طلبك في الوقت الفعلي: تجهيز، شحن، توصيل.',
+    fq2:'ما هي مدة التوصيل؟',
+    fa2:'المدة تعتمد على موقعك. عموماً بين 24 و48 ساعة في تونس. ستجد المدة الدقيقة على صفحة طلبك.',
+    fq3:'ماذا أفعل إذا لم أستلم طلبي؟',
+    fa3:'إذا لم يصل طلبك في الوقت المتوقع، يرجى التحقق من الحالة عبر رابط التتبع. إذا بدا كل شيء على ما يرام لكنك لم تستلم بعد، اتصل بخدمة العملاء على <strong>societesimex@gmail.com</strong> أو الهاتف <strong>+216 97 730 083</strong>.',
+    fq4:'هل يمكنني تغيير عنوان التوصيل بعد تأكيد الطلب؟',
+    fa4:'بمجرد تأكيد الطلب، لا يمكن تغيير العنوان عبر حسابك. لكن يمكنك التواصل معنا مباشرة لإجراء التغيير، شرط ألا يكون قد تم الشحن.',
+    fq5:'ما طرق الدفع المقبولة؟',
+    fa5:'بطاقة بنكية عبر ClicToPay، Konnect، D17/Flouci، الدفع نقداً عند التسليم، تحويل بنكي، وحساب محترف بدفع بـ30 يوماً.',
+    n_t1:'ابقَ في ',n_t2:'الصورة.',n_p:'سجّل واحصل على وصول مبكر للساعات السعيدة والعروض السريعة والمنتجات الجديدة.',n_ph:'بريدك الإلكتروني',n_btn:'اشترك',n_p1:'10% على أول طلب',n_p2:'بدون إزعاج',n_p3:'إلغاء الاشتراك بضغطة',
+    ft_brand:'المرجع التونسي في تجهيزات الأثاث. ابتكار وموثوقية وجمالية في خدمة مشاريعك.',
+    ft_shop:'المتجر',ft_s1:'كل المنتجات',ft_s2:'الجديد',ft_s3:'العروض',ft_s4:'الأكثر مبيعاً',ft_s5:'المُكوِّن',
+    ft_help:'المساعدة',ft_h1:'تتبع الطلب',ft_h2:'التوصيل',ft_h3:'الإرجاع والضمان',ft_h4:'الأسئلة',ft_h5:'اتصل بنا',
+    ft_about:'SIMEX',ft_a1:'مهمتنا',ft_a2:'فضاء المحترفين',ft_a3:'صالة العرض',ft_a4:'وظائف',ft_a5:'قانوني',
+    ft_contact:'اتصل',ft_c_phone:'هاتف',ft_c_mail:'بريد',ft_c_loc:'متجر',ft_c_hrs:'ساعات',ft_c_hrs_v:'إثنين-سبت · 9ص-6م',
+    ft_copy:'© 2026 SIMEX · جميع الحقوق محفوظة',ft_cod:'نقداً',
+    dw_title:'قائمة الأمنيات',dw_empty_t:'قائمتك فارغة',dw_empty_p:'اضغط القلب على المنتجات التي تحبها.',dw_empty_btn:'استكشف الكتالوج',
+    dc_title:'سلتي',dc_empty_t:'سلتك فارغة',dc_empty_p:'أضف منتجات لبدء طلبك.',dc_empty_btn:'شاهد الكتالوج',dc_total:'الإجمالي',dc_checkout:'إتمام الشراء →',dc_continue:'متابعة التسوق',
+    ma_title:'حسابي',ma_login:'دخول',ma_register:'تسجيل',ma_email:'البريد',ma_pwd:'كلمة السر',ma_login_btn:'دخول',ma_name:'الاسم الكامل',ma_phone:'الهاتف',ma_reg_btn:'إنشاء الحساب',ma_pro:'محترف؟',ma_pro_link:'فضاء المحترفين →',
+    sm_ph:'مفصلات، مزالج، مقابض، إغلاق ناعم…',sm_pop:'بحث شائع',sm_results:'اقتراحات',
+    add_cart:'أضف للسلة',quick_view:'معاينة',in_stock:'متوفر',low_stock:'كمية محدودة',
+    toast_cart:'تمت الإضافة للسلة',toast_wish:'تمت الإضافة للأمنيات',toast_wish_off:'تم الحذف',toast_news:'تم الاشتراك! 10% خصم.',toast_login:'تم الدخول!',toast_reg:'تم إنشاء الحساب!'
+  }
+};
+
+/* ===== LANGUAGE ===== */
+function setLang(lang){
+  state.lang = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if(i18n[lang][key] !== undefined){
+      el.innerHTML = i18n[lang][key];
+    }
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if(i18n[lang][key] !== undefined){
+      el.placeholder = i18n[lang][key];
+    }
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  renderProducts();
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => setLang(btn.dataset.lang));
+});
+
+/* ===== SLIDER ===== */
+function changeSlide(dir){
+  const slides = document.querySelectorAll('.slide');
+  slides[state.currentSlide].classList.remove('active');
+  state.currentSlide = (state.currentSlide + dir + slides.length) % slides.length;
+  slides[state.currentSlide].classList.add('active');
+  updateDots();
+}
+function goToSlide(i){
+  document.querySelectorAll('.slide')[state.currentSlide].classList.remove('active');
+  state.currentSlide = i;
+  document.querySelectorAll('.slide')[i].classList.add('active');
+  updateDots();
+}
+function updateDots(){
+  document.querySelectorAll('.slider-dot').forEach((d,i) => d.classList.toggle('active', i === state.currentSlide));
+}
+let sliderInterval = setInterval(() => changeSlide(1), 6500);
+
+/* ===== HAPPY HOUR COUNTDOWN ===== */
+function updateCountdown(){
+  const now = new Date();
+  const end = new Date(now);
+  end.setHours(23,59,59,999);
+  const diff = end - now;
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('hh-h').textContent = String(h).padStart(2,'0');
+  document.getElementById('hh-m').textContent = String(m).padStart(2,'0');
+  document.getElementById('hh-s').textContent = String(s).padStart(2,'0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+/* ===== PRODUCTS ===== */
+function renderProducts(){
+  const grid = document.getElementById('product-grid');
+  let list = products;
+  if(state.currentTab === 'promo') list = products.filter(p => p.tags.includes('sale'));
+  else if(state.currentTab !== 'all') list = products.filter(p => p.cat === state.currentTab);
+
+  grid.innerHTML = list.map(p => {
+    const t = i18n[state.lang];
+    const inWish = state.wishlist.includes(p.id);
+    const tagsHtml = p.tags.map(tag => {
+      const labels = {fr:{new:'NEW',sale:'-30%',hot:'TOP',eco:'ECO'},en:{new:'NEW',sale:'-30%',hot:'TOP',eco:'ECO'},ar:{new:'جديد',sale:'-30%',hot:'مميز',eco:'ECO'}};
+      return `<span class="ptag ${tag}">${labels[state.lang][tag]}</span>`;
+    }).join('');
+    const discPct = p.was ? Math.round((1 - p.price/p.was) * 100) : 0;
+    return `
+      <div class="product-card reveal">
+        <div class="product-img">
+          <span class="product-img-icon">${p.icon}</span>
+          <div class="product-tags">${tagsHtml}</div>
+          <button class="product-wishlist ${inWish?'active':''}" onclick="toggleWishlist(${p.id})">
+            <svg viewBox="0 0 24 24" fill="${inWish?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <div class="product-quick">
+            <button class="quick-view">${t.quick_view}</button>
+            <button class="add-cart" onclick="addToCart(${p.id})">+ ${t.add_cart}</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-cat">${t['c'+(['charnieres','glissieres','poignees','led'].indexOf(p.cat)+1)] || p.cat}</div>
+          <div class="product-name">${p.name[state.lang]}</div>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span>${p.rating} (${p.reviews})</span>
+          </div>
+          <div class="product-price">
+            <span class="price-now">${p.price}<span class="cur">TND</span></span>
+            ${p.was ? `<span class="price-was">${p.was} TND</span><span class="price-disc">-${discPct}%</span>` : ''}
+          </div>
+          <div class="product-stock ${p.stock==='low'?'low':''}">● ${p.stock==='low'?t.low_stock:t.in_stock}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+  initReveal();
+}
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    state.currentTab = tab.dataset.tab;
+    renderProducts();
+  });
+});
+
+/* ===== WISHLIST ===== */
+function toggleWishlist(id){
+  const idx = state.wishlist.indexOf(id);
+  if(idx > -1){
+    state.wishlist.splice(idx, 1);
+    showToast(i18n[state.lang].toast_wish_off);
+  } else {
+    state.wishlist.push(id);
+    showToast(i18n[state.lang].toast_wish, '♥');
+  }
+  updateWishlistBadge();
+  renderProducts();
+  renderWishlist();
+}
+function updateWishlistBadge(){
+  const badge = document.getElementById('wishlist-badge');
+  badge.textContent = state.wishlist.length;
+  badge.style.display = state.wishlist.length > 0 ? 'flex' : 'none';
+}
+function renderWishlist(){
+  const body = document.getElementById('wishlist-body');
+  const t = i18n[state.lang];
+  if(state.wishlist.length === 0){
+    body.innerHTML = `<div class="empty-state"><div class="empty-state-icon">♡</div><h4>${t.dw_empty_t}</h4><p>${t.dw_empty_p}</p><button class="btn btn-primary" onclick="closeAll()">${t.dw_empty_btn}</button></div>`;
+    return;
+  }
+  body.innerHTML = state.wishlist.map(id => {
+    const p = products.find(x => x.id === id);
+    return `
+      <div class="cart-item">
+        <div class="cart-img">${p.icon}</div>
+        <div class="cart-info">
+          <h4>${p.name[state.lang]}</h4>
+          <div class="meta">★ ${p.rating}</div>
+          <button class="qty-ctrl" style="background:transparent;padding:0" onclick="addToCart(${p.id})"><span style="color:var(--red);font-size:11px;font-weight:600">+ ${t.add_cart}</span></button>
+        </div>
+        <div class="cart-price">
+          <span class="amt">${p.price} TND</span>
+          <button class="cart-remove" onclick="toggleWishlist(${p.id})">×</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+/* ===== CART ===== */
+function addToCart(id){
+  const item = state.cart.find(x => x.id === id);
+  if(item) item.qty++;
+  else state.cart.push({id, qty:1});
+  updateCartBadge();
+  renderCart();
+  showToast(i18n[state.lang].toast_cart, '🛒');
+}
+function changeQty(id, delta){
+  const item = state.cart.find(x => x.id === id);
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty < 1) state.cart = state.cart.filter(x => x.id !== id);
+  updateCartBadge();
+  renderCart();
+}
+function removeFromCart(id){
+  state.cart = state.cart.filter(x => x.id !== id);
+  updateCartBadge();
+  renderCart();
+}
+function updateCartBadge(){
+  const total = state.cart.reduce((s,i) => s+i.qty, 0);
+  const badge = document.getElementById('cart-badge');
+  badge.textContent = total;
+  badge.style.display = total > 0 ? 'flex' : 'none';
+}
+function renderCart(){
+  const body = document.getElementById('cart-body');
+  const foot = document.getElementById('cart-foot');
+  const t = i18n[state.lang];
+  if(state.cart.length === 0){
+    body.innerHTML = `<div class="empty-state"><div class="empty-state-icon">🛒</div><h4>${t.dc_empty_t}</h4><p>${t.dc_empty_p}</p><button class="btn btn-primary" onclick="closeAll()">${t.dc_empty_btn}</button></div>`;
+    foot.style.display = 'none';
+    return;
+  }
+  let total = 0;
+  body.innerHTML = state.cart.map(item => {
+    const p = products.find(x => x.id === item.id);
+    total += p.price * item.qty;
+    return `
+      <div class="cart-item">
+        <div class="cart-img">${p.icon}</div>
+        <div class="cart-info">
+          <h4>${p.name[state.lang]}</h4>
+          <div class="meta">${p.price} TND/u</div>
+          <div class="qty-ctrl">
+            <button onclick="changeQty(${p.id},-1)">−</button>
+            <span>${item.qty}</span>
+            <button onclick="changeQty(${p.id},1)">+</button>
+          </div>
+        </div>
+        <div class="cart-price">
+          <span class="amt">${p.price * item.qty} TND</span>
+          <button class="cart-remove" onclick="removeFromCart(${p.id})">${t.dc_continue && '×'}</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('cart-total-amt').textContent = `${total} TND`;
+  foot.style.display = 'block';
+}
+
+/* ===== DRAWERS / MODALS ===== */
+function openDrawer(name){
+  document.getElementById('overlay').classList.add('show');
+  document.getElementById('drawer-' + name).classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function openModal(name){
+  document.getElementById('overlay').classList.add('show');
+  document.getElementById('modal-' + name).classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function openSearch(){
+  document.getElementById('overlay').classList.add('show');
+  document.getElementById('search-modal').classList.add('show');
+  setTimeout(() => document.getElementById('search-input-modal').focus(), 100);
+  renderSearchResults();
+  document.body.style.overflow = 'hidden';
+}
+function closeAll(){
+  document.getElementById('overlay').classList.remove('show');
+  document.querySelectorAll('.drawer,.modal,.search-modal').forEach(el => el.classList.remove('show'));
+  document.body.style.overflow = '';
+}
+
+function switchAuthTab(tab, btn){
+  document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('auth-login').style.display = tab === 'login' ? 'block' : 'none';
+  document.getElementById('auth-register').style.display = tab === 'register' ? 'block' : 'none';
+}
+function handleAuth(type){
+  showToast(type === 'login' ? i18n[state.lang].toast_login : i18n[state.lang].toast_reg, '✓');
+  closeAll();
+}
+function handleNewsletter(e){
+  e.preventDefault();
+  showToast(i18n[state.lang].toast_news, '🎉');
+  e.target.reset();
+}
+
+/* ===== SEARCH ===== */
+function renderSearchResults(query=''){
+  const list = products.filter(p => !query || p.name[state.lang].toLowerCase().includes(query.toLowerCase()));
+  document.getElementById('search-results').innerHTML = list.slice(0,5).map(p => `
+    <div class="search-result" onclick="closeAll()">
+      <div class="search-result-img">${p.icon}</div>
+      <div class="search-result-info"><h6>${p.name[state.lang]}</h6><span>${p.cat}</span></div>
+      <div class="search-result-price">${p.price} TND</div>
+    </div>
+  `).join('');
+}
+document.getElementById('search-input-modal').addEventListener('input', (e) => renderSearchResults(e.target.value));
+document.querySelectorAll('.search-tag').forEach(tag => {
+  tag.addEventListener('click', () => {
+    document.getElementById('search-input-modal').value = tag.textContent;
+    renderSearchResults(tag.textContent);
+  });
+});
+
+/* ===== FAQ ===== */
+function toggleFaq(btn){
+  btn.parentElement.classList.toggle('open');
+}
+
+/* ===== TOAST ===== */
+let toastTimer;
+function showToast(msg, icon='✓'){
+  const toast = document.getElementById('toast');
+  toast.querySelector('.toast-icon').textContent = icon;
+  document.getElementById('toast-msg').textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+}
+
+/* ===== SCROLL HEADER ===== */
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 30);
+});
+
+/* ===== REVEAL ON SCROLL ===== */
+function initReveal(){
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, {threshold:.1});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => obs.observe(el));
+}
+
+/* ===== INIT ===== */
+renderProducts();
+initReveal();
+</script>
+</body>
+</html>

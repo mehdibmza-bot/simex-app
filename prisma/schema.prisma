@@ -1,0 +1,268 @@
+// Prisma schema — SIMEX e-commerce
+// PostgreSQL is the production target. For quick local dev, set DATABASE_URL to a sqlite:./dev.db and switch provider to "sqlite".
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String    @id @default(cuid())
+  email       String    @unique
+  password    String
+  name        String
+  phone       String?
+  role        String    @default("CUSTOMER")
+  proTier     String?   // bronze | silver | gold | diamond
+  taxId       String?
+  discount    Float     @default(0)  // custom discount percentage 0-100
+  notes       String?   // admin internal notes
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  addresses   Address[]
+  orders      Order[]
+  reviews     Review[]
+  wishlist    WishlistItem[]
+}
+
+model Address {
+  id         String  @id @default(cuid())
+  userId     String
+  user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  label      String  // home | work | site
+  street     String
+  city       String
+  postalCode String?
+  zone       String  // Z1..Z5
+  isDefault  Boolean @default(false)
+}
+
+model Category {
+  id          String     @id @default(cuid())
+  slug        String     @unique
+  nameFr      String
+  nameEn      String
+  nameAr      String
+  icon        String?
+  image       String?
+  parentId    String?
+  parent      Category?  @relation("CategoryParent", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryParent")
+  products    Product[]
+  order       Int        @default(0)
+}
+
+model Product {
+  id           String           @id @default(cuid())
+  slug         String           @unique
+  sku          String           @unique
+  nameFr       String
+  nameEn       String
+  nameAr       String
+  descFr       String
+  descEn       String
+  descAr       String
+  price        Decimal
+  comparePrice Decimal?
+  stock        Int              @default(0)
+  brand        String?
+  rating       Float            @default(0)
+  reviewCount  Int              @default(0)
+  isNew           Boolean          @default(false)
+  isHot           Boolean          @default(false)
+  isEco           Boolean          @default(false)
+  isBlackFriday   Boolean          @default(false)
+  status          String           @default("active")
+  categoryId   String
+  category     Category         @relation(fields: [categoryId], references: [id])
+  images       ProductImage[]
+  attributes   String?
+  videoUrl     String?          // story-format product video URL
+  reviews      Review[]
+  orderItems   OrderItem[]
+  wishlistedBy WishlistItem[]
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+
+  @@index([categoryId])
+  @@index([status])
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String?
+  order     Int     @default(0)
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  rating    Int
+  body      String?
+  createdAt DateTime @default(now())
+}
+
+model WishlistItem {
+  id        String  @id @default(cuid())
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
+model Order {
+  id                  String        @id @default(cuid())
+  number              String        @unique // SX-2026-000001
+  userId              String?
+  user                User?         @relation(fields: [userId], references: [id])
+  email               String
+  phone               String
+  status              String        @default("PENDING")
+  paymentMethod       String
+  subtotal            Decimal
+  shipping            Decimal
+  discount            Decimal       @default(0)
+  total               Decimal
+  shippingAddress     String
+  trackingCode        String?
+  notes               String?
+  deliveryAgentId     String?       // FK to User with role=DELIVERY
+  deliveryAgentName   String?       // denormalized for display
+  deliveryNotes       String?       // delivery-agent-specific notes
+  items               OrderItem[]
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([deliveryAgentId])
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  name      String
+  sku       String
+  quantity  Int
+  unitPrice Decimal
+  total     Decimal
+}
+
+model Promotion {
+  id             String   @id @default(cuid())
+  code           String   @unique
+  type           String   // flash | happy_hour | bundle | tier | coupon
+  value          Decimal  // percentage
+  startsAt       DateTime
+  endsAt         DateTime
+  isActive       Boolean  @default(true)
+  description    String?
+  usageCount     Int      @default(0)
+  usageLimit     Int?
+  // Story Banner fields
+  bannerVideoUrl String?
+  bannerTitle    String?
+  bannerSubtitle String?
+  bannerCta      String?
+  bannerColor    String?  // red | purple | blue | amber | emerald | dark
+  createdAt      DateTime @default(now())
+}
+
+model Newsletter {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  language  String   @default("fr")
+  createdAt DateTime @default(now())
+}
+
+model SliderSlide {
+  id          String   @id @default(cuid())
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  eyebrow     String
+  titleLine1  String
+  titleLine2  String
+  titleLine3  String
+  description String
+  imageUrl    String
+  btn1Label   String
+  btn1Href    String   @default("/products")
+  btn2Label   String
+  btn2Href    String   @default("/builder")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model HomepageSection {
+  id        String  @id @default(cuid())
+  key       String  @unique
+  label     String
+  isVisible Boolean @default(true)
+  order     Int     @default(0)
+}
+
+// Generic key → JSON-blob CMS store
+model SiteContent {
+  key       String   @id   // e.g. "happy_hour", "video_showcase", "daily_deal"
+  value     String   @default("{}") // JSON blob
+  updatedAt DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  city      String   @default("")
+  initials  String   @default("")
+  color     String   @default("from-blue-600 to-blue-400")
+  rating    Int      @default(5)
+  product   String   @default("")
+  body      String
+  date      String   @default("")
+  verified  Boolean  @default(true)
+  isActive  Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model FaqItem {
+  id       String  @id @default(cuid())
+  question String
+  answer   String
+  order    Int     @default(0)
+  isActive Boolean @default(true)
+}
+
+model TickerEvent {
+  id       String  @id @default(cuid())
+  icon     String  @default("🛒")
+  message  String
+  time     String  @default("")
+  isActive Boolean @default(true)
+  order    Int     @default(0)
+}
+
+model VideoItem {
+  id       String  @id @default(cuid())
+  title    String
+  duration String  @default("")
+  thumbUrl String
+  videoUrl String  @default("")
+  order    Int     @default(0)
+  isActive Boolean @default(true)
+}

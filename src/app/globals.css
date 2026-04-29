@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 4%;
+    --primary: 358 76% 52%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 42%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 358 76% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 358 76% 52%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 100%;
+    --primary: 358 76% 52%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 11%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 358 76% 52%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  html[dir="rtl"] body {
+    font-family: var(--font-cairo), system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .display {
+    font-family: var(--font-bebas), Impact, sans-serif;
+    letter-spacing: 0.04em;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .text-stroke {
+    -webkit-text-stroke: 2px currentColor;
+    color: transparent;
+  }
+}
+
+/* ── Autofill override — prevents browser from overriding input backgrounds ── */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #f9fafb inset !important;
+  box-shadow: 0 0 0px 1000px #f9fafb inset !important;
+  -webkit-text-fill-color: #111827 !important;
+  caret-color: #111827;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Dark context autofill (sidebar, dark modals) */
+.dark-autofill input:-webkit-autofill,
+.dark-autofill input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #1a1a1a inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Brand gradient utilities */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, #e1252a 0%, #c41e22 100%);
+}
+.bg-noir-gradient {
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+/* ── Global form input text fix — prevents white-on-white glitch ── */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+textarea,
+select {
+  color: #111827;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af !important;
+  opacity: 1;
+}
+select option {
+  color: #111827;
+  background: #ffffff;
+}
+
+/* ── Custom thin scrollbar ── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e5e7eb transparent;
+}
+
+/* ── Scroll-reveal ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-36px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.reveal       { opacity: 0; transform: translateY(36px);  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.reveal-left  { opacity: 0; transform: translateX(-36px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.reveal-scale { opacity: 0; transform: scale(0.9);        transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1); }
+
+.reveal.in-view, .reveal-left.in-view, .reveal-scale.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Marquee / ticker ── */
+@keyframes marqueeLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marqueeLeft 32s linear infinite; }
+.animate-marquee-fast { animation: marqueeLeft 18s linear infinite; }
+
+/* ── Float ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+.animate-float { animation: float 5s ease-in-out infinite; }
+
+/* ── Shimmer (skeleton/highlight) ── */
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.08) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2.4s infinite;
+}
+
+/* ── Gradient border glow on hover ── */
+.glow-hover {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+.glow-hover:hover {
+  box-shadow: 0 0 0 1px rgba(225,37,42,0.3), 0 8px 32px rgba(225,37,42,0.15);
+}
