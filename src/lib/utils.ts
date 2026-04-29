@@ -6,7 +6,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatPrice(amount: number | string, currency = "DT") {
-  const n = typeof amount === "string" ? parseFloat(amount) : amount;
+  const n = typeof amount === "string" ? parseFloat(amount) : Number(amount);
+  if (!Number.isFinite(n)) return `0.00 ${currency}`;
   return `${n.toFixed(2)} ${currency}`;
 }
 

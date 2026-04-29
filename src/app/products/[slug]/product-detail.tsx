@@ -211,7 +211,14 @@ export function ProductDetail({
             </Button>
             <Button
               onClick={() => {
-                wishToggle(product.id);
+                wishToggle({
+                  id: product.id,
+                  slug: product.slug,
+                  name,
+                  price,
+                  image: product.images?.[0]?.url,
+                  category: product.category?.nameFr,
+                });
                 showToast(inWish ? t("toast_wish_off") : t("toast_wish"));
               }}
               variant="outline"
