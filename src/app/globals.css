@@ -224,7 +224,7 @@ html[data-theme="pearl"] nav.sticky a:hover {
   color: #1C1917 !important;
 }
 /* Gradient fade at scroll edge — remap to pearl bg */
-html[data-theme="pearl"] nav.sticky .from-\[#0d0d0d\] {
+html[data-theme="pearl"] nav.sticky .scroll-fade-edge {
   --tw-gradient-from: #F4F0E8 var(--tw-gradient-from-position);
 }
 
@@ -237,7 +237,7 @@ html[data-theme="pearl"] .mobile-drawer .text-neutral-300,
 html[data-theme="pearl"] .mobile-drawer .text-neutral-400 { color: #1C1917; }
 html[data-theme="pearl"] .mobile-drawer .text-neutral-600  { color: #6B6560; }
 html[data-theme="pearl"] .mobile-drawer .bg-neutral-900    { background-color: #F4F0E8; }
-html[data-theme="pearl"] .mobile-drawer .bg-\[#0a0a0a\]   { background-color: #FDFCFA; }
+html[data-theme="pearl"] .mobile-drawer .drawer-bg        { background-color: #FDFCFA; }
 html[data-theme="pearl"] .mobile-drawer .border-neutral-800,
 html[data-theme="pearl"] .mobile-drawer .bg-neutral-800    { border-color: #E2DDD5; background-color: #E8E4DE; }
 html[data-theme="pearl"] .mobile-drawer a:hover,
