@@ -84,10 +84,15 @@ export default async function RootLayout({
     ]);
     if (contactRow?.value) contact = JSON.parse(contactRow.value);
     navLinks = [
-      { href: "/products", label: "Tous les produits" },
-      ...menuCats.map((c: any) => ({ href: `/products?cat=${c.slug}`, label: c.nameFr })),
-      { href: "/builder", label: "Configurateur", highlight: true },
-      { href: "/pro", label: "Espace Pro", pro: true },
+      { href: "/products", label: "Tous les produits", labelEn: "All products", labelAr: "كل المنتجات" },
+      ...menuCats.map((c: any) => ({
+        href: `/products?cat=${c.slug}`,
+        label: c.nameFr,
+        labelEn: c.nameEn || c.nameFr,
+        labelAr: c.nameAr || c.nameFr,
+      })),
+      { href: "/builder", label: "Configurateur", labelEn: "Builder", labelAr: "المُكوِّن", highlight: true },
+      { href: "/pro", label: "Espace Pro", labelEn: "Pro Hub", labelAr: "فضاء المحترفين", pro: true },
     ];
   } catch {/* DB not available — use defaults */}
 

@@ -21,7 +21,7 @@ const DEFAULT_NAV_LINKS = [
   { href: "/pro", label: "★ Espace Pro", emoji: "👷", pro: true },
 ];
 
-export interface NavLink { href: string; label: string; emoji?: string; highlight?: boolean; pro?: boolean; }
+export interface NavLink { href: string; label: string; labelEn?: string; labelAr?: string; emoji?: string; highlight?: boolean; pro?: boolean; }
 
 function IconBtn({
   onClick,
@@ -57,9 +57,16 @@ function MobileMenu({
   navLinks?: NavLink[]; phone?: string;
 }) {
   const t = useI18n((s) => s.t);
+  const lang = useI18n((s) => s.lang);
   const links = navLinks ?? DEFAULT_NAV_LINKS;
   const tel = phone ?? "+216 97 730 083";
   const waNum = tel.replace(/[^0-9]/g, "");
+
+  const getLabel = (l: NavLink) => {
+    if (lang === "en") return l.labelEn ?? l.label;
+    if (lang === "ar") return l.labelAr ?? l.label;
+    return l.label;
+  };
 
   // Lock body scroll when open
   useEffect(() => {
@@ -117,7 +124,9 @@ function MobileMenu({
         <nav className="flex-1 overflow-y-auto px-3 pb-6">
           <p className="px-3 py-2 text-[10px] tracking-[2px] uppercase text-neutral-600 font-semibold">Navigation</p>
           <ul className="flex flex-col gap-0.5">
-            {links.map(({ href, label, emoji, highlight, pro }) => (
+            {links.map((link) => {
+              const { href, emoji, highlight, pro } = link;
+              const label = getLabel(link);
               <li key={href}>
                 <Link
                   href={href}
@@ -136,7 +145,7 @@ function MobileMenu({
                   <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all" />
                 </Link>
               </li>
-            ))}
+            )})}
           </ul>
 
           {/* Divider */}
