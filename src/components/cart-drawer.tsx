@@ -94,45 +94,64 @@ export function CartDrawer() {
           <>
             <div className="flex-1 overflow-y-auto px-5 py-4 space-y-3">
               {items.map((it) => (
-                <div key={it.id} className="flex gap-3 p-3 bg-brand-cream rounded-xl">
-                  <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white shrink-0">
-                    {it.image ? (
-                      <Image src={it.image} alt={it.name} fill sizes="64px" className="object-cover" />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-2xl">📦</div>
-                    )}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xs text-neutral-500 mb-0.5">{it.sku}</p>
-                    <p className="text-sm font-semibold text-brand-black line-clamp-2 mb-1.5">{it.name}</p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1 bg-white rounded-full p-0.5 border border-neutral-300">
-                        <button
-                          onClick={() => setQty(it.id, it.qty - 1)}
-                          className="w-6 h-6 rounded-full hover:bg-neutral-100 flex items-center justify-center text-neutral-700"
-                          aria-label="Decrease"
-                        >
-                          <Minus className="w-3 h-3" />
-                        </button>
-                        <span className="w-7 text-center text-xs font-semibold text-neutral-900">{it.qty}</span>
-                        <button
-                          onClick={() => setQty(it.id, it.qty + 1)}
-                          className="w-6 h-6 rounded-full hover:bg-neutral-100 flex items-center justify-center text-neutral-700"
-                          aria-label="Increase"
-                        >
-                          <Plus className="w-3 h-3" />
-                        </button>
-                      </div>
-                      <span className="text-sm font-bold text-brand-red">{formatPrice(it.price * it.qty)}</span>
+                <div key={it.id} className="bg-brand-cream rounded-xl overflow-hidden">
+                  <div className="flex gap-3 p-3">
+                    <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white shrink-0">
+                      {it.image ? (
+                        <Image src={it.image} alt={it.name} fill sizes="64px" className="object-cover" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-2xl">📦</div>
+                      )}
                     </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs text-neutral-500 mb-0.5">{it.sku}</p>
+                      <p className="text-sm font-semibold text-brand-black line-clamp-2 mb-1.5">{it.name}</p>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-1 bg-white rounded-full p-0.5 border border-neutral-300">
+                          <button
+                            onClick={() => setQty(it.id, it.qty - 1)}
+                            className="w-6 h-6 rounded-full hover:bg-neutral-100 flex items-center justify-center text-neutral-700"
+                            aria-label="Decrease"
+                          >
+                            <Minus className="w-3 h-3" />
+                          </button>
+                          <span className="w-7 text-center text-xs font-semibold text-neutral-900">{it.qty}</span>
+                          <button
+                            onClick={() => setQty(it.id, it.qty + 1)}
+                            className="w-6 h-6 rounded-full hover:bg-neutral-100 flex items-center justify-center text-neutral-700"
+                            aria-label="Increase"
+                          >
+                            <Plus className="w-3 h-3" />
+                          </button>
+                        </div>
+                        <span className="text-sm font-bold text-brand-red">{formatPrice(it.price * it.qty)}</span>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => remove(it.id)}
+                      aria-label="Remove"
+                      className="text-neutral-400 hover:text-brand-red self-start p-1"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
                   </div>
-                  <button
-                    onClick={() => remove(it.id)}
-                    aria-label="Remove"
-                    className="text-neutral-400 hover:text-brand-red self-start p-1"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
+
+                  {/* Parts breakdown for configurator bundles */}
+                  {it.parts && Object.keys(it.parts).length > 0 && (
+                    <div className="px-3 pb-3 pt-0">
+                      <div className="bg-white rounded-lg p-3 space-y-2 text-xs border border-neutral-200">
+                        <p className="font-semibold text-neutral-600 mb-2">Détails du bundle:</p>
+                        {Object.entries(it.parts).map(([key, part]) => (
+                          <div key={key} className="flex items-center justify-between py-1 border-b border-neutral-100 last:border-0">
+                            <span className="text-neutral-700">
+                              <span className="font-medium">{part.qty}</span> × {part.label}
+                            </span>
+                            <span className="font-semibold text-brand-red">{formatPrice(part.price * part.qty)}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

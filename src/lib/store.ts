@@ -10,6 +10,9 @@ export interface CartItem {
   qty: number;
   image?: string;
   sku: string;
+  parts?: {
+    [key: string]: { qty: number; price: number; label: string };
+  };
 }
 
 interface CartState {

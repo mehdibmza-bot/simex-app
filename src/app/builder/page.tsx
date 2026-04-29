@@ -64,6 +64,12 @@ export default function BuilderPage() {
         name: `Bundle configurateur ${preset.title}`,
         price: Number(total.toFixed(2)),
         image: "/placeholder.svg",
+        parts: {
+          hinges: { qty: parts.hinges, price: PRICES.hinges, label: "Charnières clip-on" },
+          slides: { qty: parts.slides, price: PRICES.slides, label: "Glissières 450mm" },
+          handles: { qty: parts.handles, price: PRICES.handles, label: "Poignées" },
+          screws: { qty: parts.screws, price: PRICES.screws, label: "Vis (boîte 200pcs)" },
+        },
       },
       1
     );
