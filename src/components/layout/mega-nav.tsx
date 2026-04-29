@@ -7,11 +7,12 @@ import { cn } from "@/lib/utils";
 import type { NavLink } from "./header";
 
 const DEFAULT_ITEMS: NavLink[] = [
-  { href: "/products",                label: "Tous les produits", labelEn: "All products",    labelAr: "كل المنتجات" },
-  { href: "/products?cat=charnieres", label: "Portes",            labelEn: "Doors",            labelAr: "أبواب" },
-  { href: "/products?cat=glissieres", label: "Tiroirs",           labelEn: "Drawers",          labelAr: "أدراج" },
-  { href: "/products?cat=led",        label: "Éclairage",         labelEn: "Lighting",         labelAr: "إضاءة" },
-  { href: "/builder",                 label: "Configurateur",     labelEn: "Builder",          labelAr: "المُكوِّن", highlight: true },
+  { href: "/products",                label: "Tous les produits",  labelEn: "All products",    labelAr: "كل المنتجات" },
+  { href: "/products?cat=charnieres", label: "Charnières",         labelEn: "Hinges",           labelAr: "مفصلات" },
+  { href: "/products?cat=glissieres", label: "Glissières",         labelEn: "Drawer slides",    labelAr: "سكك أدراج" },
+  { href: "/products?cat=poignees",   label: "Poignées",           labelEn: "Handles",          labelAr: "مقابض" },
+  { href: "/products?cat=led",        label: "Éclairage LED",      labelEn: "LED Lighting",     labelAr: "إضاءة LED" },
+  { href: "/builder",                 label: "Configurateur",      labelEn: "Builder",          labelAr: "المُكوِّن", highlight: true },
 ];
 
 export function MegaNav({ navLinks }: { navLinks?: NavLink[] }) {
