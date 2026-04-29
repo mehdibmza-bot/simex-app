@@ -76,7 +76,7 @@ export default async function RootLayout({
 
   // Fetch CMS contact + nav categories from DB (safe — falls back gracefully)
   let contact = {};
-  let navLinks: { href: string; label: string; emoji?: string; highlight?: boolean; pro?: boolean; }[] | undefined;
+  let navLinks: { href: string; label: string; labelEn?: string; labelAr?: string; emoji?: string; highlight?: boolean; pro?: boolean; }[] | undefined;
   try {
     const [contactRow, menuCats] = await Promise.all([
       db.siteContent.findUnique({ where: { key: "contact" } }),
