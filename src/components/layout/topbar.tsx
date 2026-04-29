@@ -3,6 +3,7 @@
 import { Phone, Mail } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { LanguageSwitcher } from "./language-switcher";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Topbar({ phone: phoneProp, email: emailProp }: { phone?: string; email?: string }) {
   const t = useI18n((s) => s.t);
@@ -27,6 +28,7 @@ export function Topbar({ phone: phoneProp, email: emailProp }: { phone?: string;
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#22c55e] animate-pulse-dot" />
               {t("open")}
             </span>
+            <ThemeToggle />
             <LanguageSwitcher />
           </div>
         </div>
