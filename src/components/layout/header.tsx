@@ -202,7 +202,6 @@ export function Header({ navLinks, phone }: { navLinks?: NavLink[]; phone?: stri
   const wishCount = useWishlist((s) => s.ids.length);
   const t = useI18n((s) => s.t);
   const { setCart, setWishlist, setAuth, setSearch } = useUI();
-  const { theme, toggleTheme } = useTheme();
   useEffect(() => {
     setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 30);
