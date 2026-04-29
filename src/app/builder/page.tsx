@@ -63,7 +63,7 @@ export default function BuilderPage() {
         sku: `BUNDLE-${preset.id.toUpperCase()}`,
         name: `Bundle configurateur ${preset.title}`,
         price: Number(total.toFixed(2)),
-        image: "/placeholder.svg",
+        image: "/logo.png",
         parts: {
           hinges: { qty: parts.hinges, price: PRICES.hinges, label: "Charnières clip-on" },
           slides: { qty: parts.slides, price: PRICES.slides, label: "Glissières 450mm" },
