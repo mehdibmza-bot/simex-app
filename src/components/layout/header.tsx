@@ -146,7 +146,7 @@ function MobileMenu({
                   <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all" />
                 </Link>
               </li>
-            )})}
+            })}
           </ul>
 
           {/* Divider */}
@@ -283,3 +283,4 @@ export function Header({ navLinks, phone }: { navLinks?: NavLink[]; phone?: stri
     </>
   );
 }
+
