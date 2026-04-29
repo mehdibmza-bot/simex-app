@@ -5,7 +5,8 @@ import { db } from "@/lib/db";
 export async function GET(req: NextRequest) {
   try {
     const agents = await db.user.findMany({
-      where: { role: "DELIVERY" },
+      // Support both legacy and current delivery role keys.
+      where: { role: { in: ["DELIVERY_AGENT", "DELIVERY"] } },
       select: { id: true, name: true, email: true, phone: true },
       orderBy: { name: "asc" },
     });
