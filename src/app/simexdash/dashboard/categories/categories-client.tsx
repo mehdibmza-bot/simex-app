@@ -18,12 +18,12 @@ const ICON_MAP: Record<string, LucideIcon> = {
 const ICON_OPTIONS = Object.keys(ICON_MAP);
 
 const DEMO_CATS = [
-  { id:"c1", slug:"charnieres", nameFr:"Charnières", nameEn:"Hinges", nameAr:"المفصلات", icon:"Cog", image:"", order:1, _count:{ products: 3 } },
-  { id:"c2", slug:"glissieres", nameFr:"Glissières", nameEn:"Drawer Slides", nameAr:"الأدراج", icon:"ArrowLeftRight", image:"", order:2, _count:{ products: 3 } },
-  { id:"c3", slug:"poignees", nameFr:"Poignées", nameEn:"Handles", nameAr:"المقابض", icon:"Grip", image:"", order:3, _count:{ products: 3 } },
+  { id:"c1", slug:"charnieres", nameFr:"Charnières", nameEn:"Hinges", nameAr:"المفصلات", icon:"Cog", image:"", order:1, showInMenu:false, _count:{ products: 3 } },
+  { id:"c2", slug:"glissieres", nameFr:"Glissières", nameEn:"Drawer Slides", nameAr:"الأدراج", icon:"ArrowLeftRight", image:"", order:2, showInMenu:false, _count:{ products: 3 } },
+  { id:"c3", slug:"poignees", nameFr:"Poignées", nameEn:"Handles", nameAr:"المقابض", icon:"Grip", image:"", order:3, showInMenu:false, _count:{ products: 3 } },
 ];
 
-const EMPTY = { nameFr:"", nameEn:"", nameAr:"", slug:"", icon:"Package", image:"", order:"" };
+const EMPTY = { nameFr:"", nameEn:"", nameAr:"", slug:"", icon:"Package", image:"", order:"", showInMenu: false };
 
 interface CatClientProps { initialCategories: any[] }
 
@@ -46,7 +46,7 @@ export function CategoriesClient({ initialCategories }: CatClientProps) {
   const openCreate = () => { setEditCat(null); setForm({ ...EMPTY }); setModal(true); };
   const openEdit = (c: any) => {
     setEditCat(c);
-    setForm({ nameFr: c.nameFr, nameEn: c.nameEn || "", nameAr: c.nameAr || "", slug: c.slug, icon: c.icon || "Package", image: c.image || "", order: String(c.order || "") });
+    setForm({ nameFr: c.nameFr, nameEn: c.nameEn || "", nameAr: c.nameAr || "", slug: c.slug, icon: c.icon || "Package", image: c.image || "", order: String(c.order || ""), showInMenu: c.showInMenu ?? false });
     setModal(true);
   };
 
@@ -54,7 +54,7 @@ export function CategoriesClient({ initialCategories }: CatClientProps) {
     if (!form.nameFr || !form.slug) { showToast("Nom et slug requis"); return; }
     setSaving(true);
     try {
-      const payload = { ...form, order: form.order ? parseInt(form.order) : 0, ...(editCat ? { id: editCat.id } : {}) };
+      const payload = { ...form, order: form.order ? parseInt(form.order) : 0, showInMenu: form.showInMenu, ...(editCat ? { id: editCat.id } : {}) };
       const res = await fetch("/api/admin/categories", {
         method: editCat ? "PUT" : "POST",
         headers: { "Content-Type": "application/json" },
@@ -129,6 +129,11 @@ export function CategoriesClient({ initialCategories }: CatClientProps) {
                   <Trash2 className="w-3 h-3" />
                 </button>
               </div>
+              {c.showInMenu && (
+                <div className="absolute top-2 left-2">
+                  <span className="bg-brand-red text-white text-[10px] font-bold px-2 py-0.5 rounded-full">MENU</span>
+                </div>
+              )}
             </div>
 
             {/* Content */}
@@ -223,6 +228,26 @@ export function CategoriesClient({ initialCategories }: CatClientProps) {
                     className="w-full h-10 rounded-xl border border-neutral-200 bg-neutral-50 px-3 text-sm focus:outline-none focus:border-brand-red" />
                 </div>
               </div>
+
+              {/* Show in mega menu toggle */}
+              <label className="flex items-center gap-3 cursor-pointer py-2 border border-neutral-200 rounded-xl px-3 bg-neutral-50">
+                <div
+                  onClick={() => set("showInMenu", !form.showInMenu)}
+                  className={cn(
+                    "relative w-11 h-6 rounded-full transition-colors shrink-0",
+                    form.showInMenu ? "bg-brand-red" : "bg-neutral-300"
+                  )}
+                >
+                  <span className={cn(
+                    "absolute top-1 left-1 w-4 h-4 bg-white rounded-full shadow transition-transform",
+                    form.showInMenu ? "translate-x-5" : "translate-x-0"
+                  )} />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-neutral-800">Afficher dans le méga-menu</p>
+                  <p className="text-xs text-neutral-400">Visible dans la barre de navigation principale</p>
+                </div>
+              </label>
 
               <div className="flex gap-3 pt-2">
                 <Button onClick={handleSave} disabled={saving} className="flex-1 bg-brand-red hover:bg-brand-red/90 text-white">

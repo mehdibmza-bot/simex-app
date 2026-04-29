@@ -74,19 +74,21 @@ export default async function RootLayout({
   const pathname = headerList.get("x-pathname") || "";
   const isAdmin = pathname.startsWith("/admin") || pathname.startsWith("/simexdash");
 
-  // Fetch CMS contact + nav from DB (safe — falls back gracefully)
+  // Fetch CMS contact + nav categories from DB (safe — falls back gracefully)
   let contact = {};
   let navLinks: { href: string; label: string; emoji?: string; highlight?: boolean; pro?: boolean; }[] | undefined;
   try {
-    const [contactRow, navRow] = await Promise.all([
+    const [contactRow, menuCats] = await Promise.all([
       db.siteContent.findUnique({ where: { key: "contact" } }),
-      db.siteContent.findUnique({ where: { key: "header_nav" } }),
+      db.category.findMany({ where: { showInMenu: true }, orderBy: { order: "asc" } }),
     ]);
     if (contactRow?.value) contact = JSON.parse(contactRow.value);
-    if (navRow?.value) {
-      const parsed = JSON.parse(navRow.value);
-      if (Array.isArray(parsed?.links) && parsed.links.length > 0) navLinks = parsed.links;
-    }
+    navLinks = [
+      { href: "/products", label: "Tous les produits" },
+      ...menuCats.map((c: any) => ({ href: `/products?cat=${c.slug}`, label: c.nameFr })),
+      { href: "/builder", label: "Configurateur", highlight: true },
+      { href: "/pro", label: "Espace Pro", pro: true },
+    ];
   } catch {/* DB not available — use defaults */}
 
   return (

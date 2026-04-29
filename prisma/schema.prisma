@@ -54,6 +54,7 @@ model Category {
   children    Category[] @relation("CategoryParent")
   products    Product[]
   order       Int        @default(0)
+  showInMenu  Boolean    @default(false)
 }
 
 model Product {
