@@ -336,14 +336,14 @@ export function PromotionsClient({ initialPromos }: PromosClientProps) {
                     <div
                       className={cn(
                         "w-14 h-20 rounded-xl flex flex-col items-center justify-center gap-1 text-white overflow-hidden relative",
-                        {
+                        ({
                           red: "bg-gradient-to-b from-red-600 to-red-900",
                           purple: "bg-gradient-to-b from-purple-600 to-purple-900",
                           blue: "bg-gradient-to-b from-blue-600 to-blue-900",
                           amber: "bg-gradient-to-b from-amber-500 to-amber-800",
                           emerald: "bg-gradient-to-b from-emerald-500 to-emerald-900",
                           dark: "bg-gradient-to-b from-neutral-700 to-black",
-                        }[(form as any).bannerColor || "red"]
+                        } as Record<string, string>)[(form as any).bannerColor || "red"]
                       )}
                     >
                       <Play className="w-3 h-3 opacity-50" />

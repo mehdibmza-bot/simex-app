@@ -177,7 +177,7 @@ export function Testimonials({ reviews }: { reviews?: ReviewData[] }) {
 
                 {/* Text */}
                 <p className="text-sm text-neutral-600 leading-relaxed flex-1 mb-5">
-                  "{r.body ?? r.text}"
+                  "{(r as any).body ?? (r as any).text}"
                 </p>
 
                 {/* Product tag */}

@@ -627,7 +627,7 @@ function DailyDealTab({ products, init }: { products: Product[]; init: Record<st
         totalStock: Number(form.totalStock),
         sold: Number(form.sold),
         rating: Number(form.rating),
-        features: form.features.split("\n").map((s) => s.trim()).filter(Boolean),
+        features: form.features.split("\n").map((s: string) => s.trim()).filter(Boolean),
       };
       await fetch("/api/admin/site-content", {
         method: "PUT",
