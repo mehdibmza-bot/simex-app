@@ -213,18 +213,18 @@ html[data-theme="pearl"] header {
 }
 
 /* ─── Mega-Nav ─── */
-html[data-theme="pearl"] nav.sticky {
-  background-color: #F4F0E8;
-  border-bottom-color: #E2DDD5;
+html[data-theme="pearl"] .pearl-nav {
+  background-color: #F4F0E8 !important;
+  border-bottom-color: #E2DDD5 !important;
 }
-html[data-theme="pearl"] nav.sticky .text-neutral-300 { color: #3C3733; }
-html[data-theme="pearl"] nav.sticky .text-white        { color: #3C3733; }
-html[data-theme="pearl"] nav.sticky a:hover {
+html[data-theme="pearl"] .pearl-nav .text-neutral-300 { color: #3C3733; }
+html[data-theme="pearl"] .pearl-nav .text-white        { color: #3C3733; }
+html[data-theme="pearl"] .pearl-nav a { color: #3C3733; }
+html[data-theme="pearl"] .pearl-nav a:hover {
   background-color: #EDE9E3 !important;
   color: #1C1917 !important;
 }
-/* Gradient fade at scroll edge — remap to pearl bg */
-html[data-theme="pearl"] nav.sticky .scroll-fade-edge {
+html[data-theme="pearl"] .pearl-nav .scroll-fade-edge {
   --tw-gradient-from: #F4F0E8 var(--tw-gradient-from-position);
 }
 
