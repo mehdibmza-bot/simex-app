@@ -1,11 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useCart, useUI } from "@/lib/store";
 import { formatPrice } from "@/lib/utils";
+import {
+  getDelegationsByGovernorate,
+  TUNISIA_GOVERNORATE_OPTIONS,
+} from "@/data/tunisia-governorates";
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -15,6 +19,13 @@ export default function CheckoutPage() {
   const showToast = useUI((s) => s.showToast);
   const [loading, setLoading] = useState(false);
   const [pm, setPm] = useState<"COD" | "CARD" | "D17" | "KONNECT">("COD");
+  const [governorate, setGovernorate] = useState("");
+  const [delegation, setDelegation] = useState("");
+
+  const delegationOptions = useMemo(
+    () => getDelegationsByGovernorate(governorate),
+    [governorate]
+  );
 
   const shipping = subtotal > 200 ? 0 : 8;
   const total = subtotal + shipping;
@@ -31,6 +42,7 @@ export default function CheckoutPage() {
       phone: fd.get("phone"),
       address: {
         line1: fd.get("address"),
+        line2: fd.get("address2"),
         city: fd.get("city"),
         governorate: fd.get("governorate"),
       },
@@ -80,9 +92,44 @@ export default function CheckoutPage() {
             </div>
             <Input name="email" type="email" placeholder="Email" required />
             <Input name="address" placeholder="Adresse" required />
+            <Input
+              name="address2"
+              placeholder="Adresse complementaire (optionnel): etage, immeuble, repere..."
+            />
             <div className="grid grid-cols-2 gap-3">
-              <Input name="city" placeholder="Ville" required />
-              <Input name="governorate" placeholder="Gouvernorat" />
+              <select
+                name="governorate"
+                required
+                value={governorate}
+                onChange={(e) => {
+                  setGovernorate(e.target.value);
+                  setDelegation("");
+                }}
+                className="h-12 w-full rounded-xl border border-neutral-200 bg-white px-3 text-sm outline-none focus:border-brand-red"
+              >
+                <option value="">Gouvernorat</option>
+                {TUNISIA_GOVERNORATE_OPTIONS.map((g) => (
+                  <option key={g} value={g}>
+                    {g}
+                  </option>
+                ))}
+              </select>
+
+              <select
+                name="city"
+                required
+                disabled={!governorate}
+                value={delegation}
+                onChange={(e) => setDelegation(e.target.value)}
+                className="h-12 w-full rounded-xl border border-neutral-200 bg-white px-3 text-sm outline-none focus:border-brand-red disabled:cursor-not-allowed disabled:bg-neutral-100"
+              >
+                <option value="">Ville / Delegation</option>
+                {delegationOptions.map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+              </select>
             </div>
             <div>
               <p className="text-sm font-semibold mb-2">Mode de paiement</p>
