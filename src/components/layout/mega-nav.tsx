@@ -29,7 +29,7 @@ export function MegaNav({ navLinks }: { navLinks?: NavLink[] }) {
   const mainLinks = navLinks?.filter((l) => !l.pro) ?? DEFAULT_ITEMS;
 
   return (
-    <nav className="hidden md:block bg-[#0d0d0d] border-b border-neutral-900 sticky top-20 lg:top-[84px] z-30">
+    <nav className="block bg-[#0d0d0d] border-b border-neutral-900 sticky top-[60px] md:top-20 lg:top-[84px] z-30">
       <div className="container">
         <div className="flex items-center h-[54px] gap-2">
 
