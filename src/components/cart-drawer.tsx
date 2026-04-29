@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ShoppingBag, Trash2, Plus, Minus, Tag, X, ChevronRight } from "lucide-react";
@@ -28,11 +28,39 @@ export function CartDrawer() {
 
   const [couponInput, setCouponInput] = useState("");
   const [couponError, setCouponError] = useState("");
+  const [canUseCoupon, setCanUseCoupon] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    (async () => {
+      try {
+        const res = await fetch("/api/auth/me", { cache: "no-store" });
+        const data = await res.json();
+        if (!active) return;
+        const isAuthed = !!data?.authenticated;
+        setCanUseCoupon(isAuthed);
+        if (!isAuthed) {
+          removeCoupon();
+        }
+      } catch {
+        if (!active) return;
+        setCanUseCoupon(false);
+        removeCoupon();
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, [removeCoupon]);
 
   const saved = compute(subtotal);
   const total = Math.max(0, subtotal - saved);
 
   const handleApplyCoupon = async () => {
+    if (!canUseCoupon) {
+      setCouponError("Connectez-vous pour appliquer un code promo.");
+      return;
+    }
     const result = await applyCoupon(couponInput);
     if (result.ok) {
       setCouponInput("");
@@ -136,21 +164,26 @@ export function CartDrawer() {
                       value={couponInput}
                       onChange={(e) => { setCouponInput(e.target.value.toUpperCase()); setCouponError(""); }}
                       onKeyDown={(e) => e.key === "Enter" && handleApplyCoupon()}
-                      placeholder={t("coupon_ph")}
+                      placeholder={canUseCoupon ? t("coupon_ph") : "Connectez-vous pour activer les coupons"}
+                      disabled={canUseCoupon === false}
                       className={cn(
                         "w-full pl-9 pr-3 py-2 text-sm border rounded-xl outline-none bg-white font-mono uppercase tracking-widest transition-colors",
-                        couponError ? "border-red-400 focus:border-red-500" : "border-neutral-200 focus:border-brand-red"
+                        couponError ? "border-red-400 focus:border-red-500" : "border-neutral-200 focus:border-brand-red",
+                        canUseCoupon === false && "opacity-60 cursor-not-allowed"
                       )}
                     />
                   </div>
                   <button
                     onClick={handleApplyCoupon}
-                    disabled={!couponInput.trim()}
+                    disabled={!couponInput.trim() || canUseCoupon === false}
                     className="px-4 py-2 bg-brand-black text-white text-sm font-semibold rounded-xl hover:bg-brand-red transition-colors disabled:opacity-40 disabled:cursor-not-allowed whitespace-nowrap"
                   >
                     {t("coupon_apply")}
                   </button>
                 </div>
+              )}
+              {canUseCoupon === false && !couponError && (
+                <p className="text-xs text-neutral-500 mt-1.5">Creez un compte ou connectez-vous pour obtenir des remises.</p>
               )}
               {couponError && (
                 <p className="text-xs text-red-500 mt-1.5 flex items-center gap-1">

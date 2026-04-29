@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Cpu, Plus, Minus, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatPrice } from "@/lib/utils";
+import { useCart, useUI } from "@/lib/store";
 
 const PRESETS = [
   { id: "kitchen", emoji: "🍳", title: "Cuisine", base: { hinges: 16, slides: 12, handles: 14, screws: 1 } },
@@ -16,6 +17,28 @@ const PRICES = { hinges: 8.5, slides: 24, handles: 6.9, screws: 18 };
 export default function BuilderPage() {
   const [preset, setPreset] = useState(PRESETS[0]);
   const [parts, setParts] = useState(PRESETS[0].base);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const addToCart = useCart((s) => s.add);
+  const showToast = useUI((s) => s.showToast);
+  const openCart = useUI((s) => s.setCart);
+
+  useEffect(() => {
+    let active = true;
+    (async () => {
+      try {
+        const res = await fetch("/api/auth/me", { cache: "no-store" });
+        const data = await res.json();
+        if (!active) return;
+        setIsAuthenticated(!!data?.authenticated);
+      } catch {
+        if (!active) return;
+        setIsAuthenticated(false);
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const choose = (p: typeof PRESETS[0]) => {
     setPreset(p);
@@ -30,8 +53,23 @@ export default function BuilderPage() {
     parts.slides * PRICES.slides +
     parts.handles * PRICES.handles +
     parts.screws * PRICES.screws;
-  const discount = subtotal * 0.07;
+  const discount = isAuthenticated ? subtotal * 0.07 : 0;
   const total = subtotal - discount;
+
+  const handleAddBundle = () => {
+    addToCart(
+      {
+        id: `builder-${preset.id}-${parts.hinges}-${parts.slides}-${parts.handles}-${parts.screws}`,
+        sku: `BUNDLE-${preset.id.toUpperCase()}`,
+        name: `Bundle configurateur ${preset.title}`,
+        price: Number(total.toFixed(2)),
+        image: "/placeholder.svg",
+      },
+      1
+    );
+    showToast("Bundle ajoute au panier", "🧩");
+    openCart(true);
+  };
 
   return (
     <div className="bg-brand-cream min-h-screen py-16">
@@ -111,11 +149,14 @@ export default function BuilderPage() {
             <h2 className="display text-2xl tracking-wider mb-5">Votre bundle</h2>
             <div className="space-y-2 text-sm mb-6">
               <Row label="Sous-total" value={formatPrice(subtotal)} />
-              <Row label="Remise -7%" value={`-${formatPrice(discount)}`} className="text-emerald-400" />
+              <Row label={isAuthenticated ? "Remise -7%" : "Remise compte"} value={`-${formatPrice(discount)}`} className="text-emerald-400" />
               <div className="border-t border-neutral-800 my-3" />
               <Row label="Total" value={formatPrice(total)} bold />
             </div>
-            <Button size="lg" className="w-full">
+            {!isAuthenticated && (
+              <p className="text-xs text-amber-300 mb-3">Connectez-vous pour activer les remises client.</p>
+            )}
+            <Button size="lg" className="w-full" onClick={handleAddBundle}>
               <Cpu className="w-4 h-4 mr-2" />
               Ajouter au panier
             </Button>

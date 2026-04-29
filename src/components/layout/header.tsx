@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Heart, ShoppingBag, User, Search, Menu, X, ChevronRight, Phone, MessageCircle } from "lucide-react";
 import { Logo } from "./logo";
 import { useUI, useCart, useWishlist } from "@/lib/store";
@@ -198,6 +199,8 @@ export function Header({ navLinks, phone }: { navLinks?: NavLink[]; phone?: stri
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const router = useRouter();
   const cartCount = useCart((s) => s.count());
   const wishCount = useWishlist((s) => s.ids.length);
   const t = useI18n((s) => s.t);
@@ -208,6 +211,32 @@ export function Header({ navLinks, phone }: { navLinks?: NavLink[]; phone?: stri
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    let active = true;
+    (async () => {
+      try {
+        const res = await fetch("/api/auth/me", { cache: "no-store" });
+        const data = await res.json();
+        if (!active) return;
+        setIsAuthenticated(!!data?.authenticated);
+      } catch {
+        if (!active) return;
+        setIsAuthenticated(false);
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const handleAccountClick = () => {
+    if (isAuthenticated) {
+      router.push("/account");
+      return;
+    }
+    setAuth(true);
+  };
 
   return (
     <>
@@ -252,7 +281,7 @@ export function Header({ navLinks, phone }: { navLinks?: NavLink[]; phone?: stri
                 <Search className="w-5 h-5 md:hidden" />
                 <span className="hidden md:block" />
               </IconBtn>
-              <IconBtn onClick={() => setAuth(true)} label="Mon compte">
+              <IconBtn onClick={handleAccountClick} label="Mon compte">
                 <User className="w-5 h-5" />
               </IconBtn>
               <IconBtn onClick={() => setWishlist(true)} count={mounted ? wishCount : 0} label="Wishlist">

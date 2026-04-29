@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { verifySession } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {
   try {
+    const token = req.cookies.get("simex_session")?.value;
+    const session = token ? await verifySession(token) : null;
+    if (!session) {
+      return NextResponse.json({ ok: false, msg: "Connectez-vous pour utiliser un code promo." }, { status: 401 });
+    }
+
     const { code } = await req.json();
     if (!code || typeof code !== "string") {
       return NextResponse.json({ ok: false, msg: "Code manquant." }, { status: 400 });

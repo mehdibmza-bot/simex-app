@@ -3,6 +3,7 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { generateOrderNumber } from "@/lib/utils";
 import { publish } from "@/lib/redis";
+import { verifySession } from "@/lib/auth";
 
 const Item = z.object({
   productId: z.string(),
@@ -27,6 +28,9 @@ const Schema = z.object({
 
 export async function POST(req: NextRequest) {
   try {
+    const token = req.cookies.get("simex_session")?.value;
+    const session = token ? await verifySession(token) : null;
+
     const parsed = Schema.safeParse(await req.json());
     if (!parsed.success) {
       return NextResponse.json({ error: "Invalid input" }, { status: 400 });
@@ -43,6 +47,9 @@ export async function POST(req: NextRequest) {
 
     let discount = 0;
     if (data.promoCode) {
+      if (!session) {
+        return NextResponse.json({ error: "Connectez-vous pour appliquer un code promo." }, { status: 401 });
+      }
       const promo = await db.promotion.findUnique({ where: { code: data.promoCode } });
       if (promo && promo.isActive) {
         discount = subtotal * (Number(promo.value) / 100);
@@ -55,6 +62,7 @@ export async function POST(req: NextRequest) {
     const order = await db.order.create({
       data: {
         number: generateOrderNumber(),
+        userId: session?.userId,
         email: data.email,
         phone: data.phone,
         shippingAddress: JSON.stringify({

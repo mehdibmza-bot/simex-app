@@ -35,7 +35,7 @@ export function MegaNav({ navLinks }: { navLinks?: NavLink[] }) {
 
           {/* Scrollable main links */}
           <div className="flex-1 min-w-0 relative">
-            <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-[#0d0d0d] to-transparent z-10 pointer-events-none" />
+            <div className="scroll-fade-edge absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-[#0d0d0d] to-transparent z-10 pointer-events-none" />
             <div className="flex items-center gap-0.5 overflow-x-auto scrollbar-none">
               {mainLinks.map((link) =>
                 link.highlight ? (
