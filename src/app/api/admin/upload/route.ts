@@ -1,7 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { writeFile, mkdir } from "fs/promises";
-import { join, extname } from "path";
-import { randomBytes } from "crypto";
 
 export async function POST(req: NextRequest) {
   try {
@@ -21,16 +18,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "File too large (max 5MB)" }, { status: 400 });
     }
 
-    const ext = extname(file.name) || `.${file.type.split("/")[1]}`;
-    const filename = `${randomBytes(12).toString("hex")}${ext}`;
-    const uploadDir = join(process.cwd(), "public", "uploads", "products");
-
-    await mkdir(uploadDir, { recursive: true });
-
+    // Convert to base64 data URL — works in all environments (local, serverless, Docker)
     const buffer = Buffer.from(await file.arrayBuffer());
-    await writeFile(join(uploadDir, filename), buffer);
+    const base64 = buffer.toString("base64");
+    const url = `data:${file.type};base64,${base64}`;
 
-    const url = `/uploads/products/${filename}`;
     return NextResponse.json({ url });
   } catch (e: any) {
     return NextResponse.json({ error: e.message || "Upload failed" }, { status: 500 });
